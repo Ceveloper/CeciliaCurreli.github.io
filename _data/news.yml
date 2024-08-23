@@ -1,0 +1,10 @@
+- date: March 2024
+  description: 'Happy to announce that my [students](https://keonhee-han.github.io) paper [Boosting Self-Supervision for Single View Scene Completion via Knowledge Distillation](https://keonhee-han.github.io/publications/kdbts/) was accepted to **CVPR 2024**'
+- date: November 2023
+  description: 'Our paper [S4C: Self-Supervised Semantic Scene Completion with Neural Fields](https://ahayler.github.io/publications/s4c/) has been accepted as one of the *spotlight* papers at **3DV 2024**'
+- date: April 2023
+  description: 'Happy to announce that our paper [Learning Correspondence Uncertainty via Differentiable Nonlinear Least Squares](publications/dnls_covs/) was accepted to **CVPR 2023**'
+- date: April 2022
+  description: '[The Probabilistic Normal Epipolar Constraint for Frame-To-Frame Rotation Optimization under Uncertain Feature Positions](publications/pnec/) was accepted to **CVPR 2022**'
+- date: April 2022
+  description: 'Started my PhD at the [Computer Vision Group](https://cvg.cit.tum.de) at TUM under the guidance of Prof. Daniel Cremers'

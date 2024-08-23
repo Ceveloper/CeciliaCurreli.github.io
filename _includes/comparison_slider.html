@@ -1,0 +1,19 @@
+<img-comparison-slider hover="hover">
+    <figure slot="first" class="before">
+        <img width="100%" src="{{ include.first_img }}" />
+        {% if include.first_caption %}
+            <figcaption>{{ include.first_caption }}</figcaption>
+        {% endif %}
+        </figure>
+        <figure slot="second" class="after">
+        <img width="100%" src="{{ include.second_img }}" />
+        {% if include.second_caption %}
+            <figcaption>{{ include.second_caption }}</figcaption>
+        {% endif %}
+    </figure>
+</img-comparison-slider>
+{% if include.caption %}
+    <p class="content has-text-centered"><i>
+        {{ include.caption }}
+    </i></p>
+{% endif %}

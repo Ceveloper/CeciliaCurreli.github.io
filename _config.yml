@@ -1,0 +1,94 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+#
+# If you need help with YAML syntax, here are some quick references for you:
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+#
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
+# Build settings
+remote_theme: mmistakes/minimal-mistakes
+minimal_mistakes_skin: default
+
+
+include:
+  - _pages
+  - _publications
+  
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+exclude:
+  - old/
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+plugins:
+  # - jekyll-remote-theme
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate
+  - jekyll-gist
+  - jekyll-feed
+  - jemoji
+  - jekyll-include-cache
+
+
+
+author:
+  name   : "Cecilia Curreli"
+  avatar : "/assets/images/profile-photo.jpg"
+  bio    : >- 
+    PhD student @ <a href="https://cvg.cit.tum.de">TUM CVG</a><br>
+    cecilia.curreli@tum.de
+  links:
+    - label: "CVG Page"
+      icon: "fa-solid fa-fw fa-flask"
+      url: "https://cvg.cit.tum.de/members/curreli"
+    - label: "LinkedIn"
+      icon: "fa-brands fa-fw fa-linkedin"
+      url: "https://de.linkedin.com/in/ceciliacurreli"
+    - label: "Google Scholar"
+      icon: "fa-brands fa-fw fa-google-scholar"
+      url: "https://scholar.google.com/citations?user=Y6wCaD4AAAAJ&hl=en"
+    - label: "X (Twitter)"
+#       icon: "fa-brands fa-fw fa-x-twitter"
+#       url: "https://twitter.com/dominikmuhle"
+#     - label: "GitHub"
+#       icon: "fa-brands fa-fw fa-github"
+#       url: "https://github.com/dominikmuhle"
+
+# ==================================================== COLLECTIONS ====================================================
+collections:
+  publications:
+    sort_by: date
+    output: true
+
+defaults:
+  - scope:
+      path: "_pages"
+      type: posts
+    values:
+      layout: single
+      author_profile: false
+      # permalink: /:name/

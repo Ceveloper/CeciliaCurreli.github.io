@@ -1,0 +1,59 @@
+<section class="hero">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title">{{ page.title }}</h1>
+                    <div class="is-size-4 publication-authors"><span class="author-block">{{ page.venue }}</span></div>
+                    <div class="is-size-5 publication-authors">
+                        <div tyle="justify-content: space-between;">
+                            {% for author_id in page.authors %}
+                            {% if site.data.authors_external[author_id.name] != nil %}
+                            {% assign author = site.data.authors_external[author_id.name] %}
+                            {% endif %}
+                            {% if site.data.authors_internal[author_id.name] != nil %}
+                            {% assign author = site.data.authors_internal[author_id.name] %}
+                            {% endif %}
+                            <span class="author-block">
+                                <a href="{{author.website}}" target="_blank">{{ author.first_name }} {{
+                                    author.middle_name }} {{ author.last_name }}</a><sup>{% if
+                                    author_id.equal_contribution != nil %}*{% endif %}{{ author_id.affiliations }}</sup>
+                            </span>
+                            {% endfor %}
+                        </div>
+                    <div class="is-size-5 publication-affiliations">
+                        {% assign i = 1 %}
+                        {% for aff_id in page.affiliations %}
+                        {% assign affiliation = site.data.affiliations[aff_id.name] %}
+                        <span class="affiliation-block">
+                            <sup>{{i}}</sup>{{affiliation[aff_id.length]}}
+                        </span>
+                        {% assign i = i|plus:1 %}
+                        {% endfor %}
+                    </div>
+                    <div class="column has-text-centered">
+                        <div class="publication-links">
+                            {% for link in page.links %}
+                            {% if link.name != "Project Page" %}
+                            <span class="link-block">
+                                <a href="{{ link.link }}" target="_blank"
+                                    class="external_link button is-normal is-rounded is-dark">
+                                    <span class="icon">
+                                        {% if link.style != nil %}
+                                        <i class="{{link.style}}"></i>
+                                        {% else %}
+                                        <i class="fas fa-external-link-alt"></i>
+                                        {% endif %}
+                                    </span>
+                                    <span>{{link.name}}</span>
+                                </a>
+                            </span>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,33 @@
+danielcremers:
+  first_name: Daniel
+  last_name: Cremers
+  website: https://vision.in.tum.de/members/cremers
+ceciliacurreli:
+  first_name: Cecilia
+  last_name: Curreli
+  website: https://ceciliacurreli.github.io
+  is_me: true
+dominikmuhle:
+  first_name: Dominik
+  last_name: Muhle
+  website: https://dominikmuhle.github.io
+abhisheksaroha:
+  first_name: Abhishek
+  last_name: Saroha
+  website: https://cvg.cit.tum.de/members/saroha
+zhenzhangye:
+  first_name: Zhenzhang
+  last_name: Ye
+  website: https://cvg.cit.tum.de/members/yez
+tarunyenamadra:
+  first_name: Tarun
+  last_name: Yenamandra
+  website: https://cvg.cit.tum.de/members/yenamandra
+mariiagladkova:
+  first_name: Mariia
+  last_name: Gladkova
+  website: https://cvg.cit.tum.de/members/gladkova
+felixwimbauer:
+  first_name: Felix
+  last_name: Wimbauer
+  website: https://cvg.cit.tum.de/members/wimbauer

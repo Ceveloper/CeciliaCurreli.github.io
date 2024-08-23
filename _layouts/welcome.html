@@ -1,0 +1,32 @@
+---
+layout: archive
+classes: wide
+---
+
+{{ content }}
+
+<p align="justify">
+    I am a PhD student at the <a href="https://cvg.cit.tum.de">Computer Vision Group</a> at <a href="https://www.tum.de">Technical University of Munich</a> (TUM) under the guidance of Prof. Cremers. This website collects my <a href="publications">research projects</a> in computer vision. Check out more awesome work from our <a href="https://cvg.cit.tum.de/publications">group</a>.
+    <br>
+    My research interest mainly lie in visual odometry, SLAM, and 3D reconstruction. However, sometimes I also dabble in various other computer vision topics.
+    <br>
+    I have obtained my master's degree in computer science (<a href="https://www.tum.de/en/studies/degree-programs/detail/robotics-cognition-intelligence-master-of-science-msc">Robotics, Cognition, Intelligence</a>) from the TUM. My master's thesis was on the topic of "Probabilistic Normal Epipolar Constraint for Frame-To-Frame Rotation Optimization under Uncertain Feature Positions". The thesis was supervised by <a href="https://lukaskoestler.com">Lukas Koestler</a>, <a href="https://cvg.cit.tum.de/members/demmeln">Nikolaus Demmel</a>, <a href="https://vision.in.tum.de/members/cremers">Prof. Cremers</a>.
+    <br>
+    I have obtained my bachelor's degree in electrical engineering from the <a href="https://www.kit.edu">Karlsruhe Institute of Technology</a> (KIT).
+</p>
+
+<div class="hr">
+    <div class="container">
+        <hr>
+    </div>
+</div>
+
+<h2 class="title is-3">News</h2>
+<div class="content">
+    {% for news in site.data.news %}
+    <b>{{ news.date }}</b> <br> {{ news.description | markdownify | remove: '<p>' | remove: '</p>' }}
+    <div class="hr">
+        <hr>
+    </div>
+    {% endfor %}
+</div>
