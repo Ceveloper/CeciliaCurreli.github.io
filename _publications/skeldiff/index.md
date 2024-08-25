@@ -1,7 +1,7 @@
 ---
 layout: publications
 permalink: /publications/skeldiff/
-external_link: https://ceciliacurreli.github.io/publications/skeldiff/
+external_link:  https://ceveloper.github.io/CeciliaCurreli.github.io//publications/skeldiff/
 date: 2024_08_27 # determines sorting just take the date of the first publication as YYYY_MM_DD
 # image: assets/teaser.png
 # image_mouseover: assets/header_vid.mp4
@@ -33,7 +33,7 @@ links:
     - name: Project Page
       link: /publications/skeldiff/
     - name: Paper
-      link: #https://arxiv.org/abs/2310.07522 # link to Github without appendix. 
+      link: https://github.com/Ceveloper/SkeletonDiffusion/blob/main/SkeletonDiffusion%20-%20Nonisotropic%20Diffusion%20with%20Limb-correlated%20Noise%20for%203D%20Human%20Motion%20Prediction.pdf #https://arxiv.org/abs/2310.07522 # link to Github without appendix. 
       style: "bi bi-file-earmark-richtext"
     - name: Code
       link: https://github.com/Ceveloper/SkeletonDiffusion/tree/main
