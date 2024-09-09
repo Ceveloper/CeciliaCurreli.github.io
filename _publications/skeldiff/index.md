@@ -3,9 +3,9 @@ layout: publications
 permalink: /publications/skeldiff/
 # external_link:  https://ceveloper.github.io/CeciliaCurreli.github.io//publications/skeldiff/
 date: 2024_08_27 # determines sorting just take the date of the first publication as YYYY_MM_DD
-# image: assets/teaser.png
-# image_mouseover: assets/header_vid.mp4
-# icon: assets/favicon.ico
+image: /assets/teaser.gif
+# image_mouseover: /assets/header_vid.mp4
+# icon: /assets/favicon.ico
 
 title: "SkeletonDiffusion: Nonisotropic Diffusion with Limb-correlated Noise for 3D Human Motion Prediction"
 # venue: preprint

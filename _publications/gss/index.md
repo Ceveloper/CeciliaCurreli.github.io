@@ -3,7 +3,7 @@ layout: publications
 permalink: /publications/gss/
 external_link: https://abhi-rf.github.io/publications/gss/
 date: 2024_04_11 # determines sorting just take the date of the first publication as YYYY_MM_DD
-# image: /assets/qualitative.gif
+image: /assets/qualitative.gif
 # image_mouseover: assets/knowledge_distillation.png
 
 title: "Gaussian Splatting in Style"
