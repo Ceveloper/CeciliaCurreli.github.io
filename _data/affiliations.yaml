@@ -13,15 +13,6 @@ oxford:
 mit:
   long: Massachusetts Institute of Technology
   short: MIT
-cariad:
-  long: CARIAD SE
-  short: CARIAD SE
-audi:
-  long: AUDI AG
-  short: AUDI AG
-roboticsbonn:
-  long: Center for Robotics, University of Bonn
-  short: University of Bonn
-lamarr:
-  long: Lamarr Institute for Machine Learning and Artificial Intelligence
-  short: Lamarr Institute for ML and AI
+nvidia:
+  long: NVIDIA
+  short: NVIDIA

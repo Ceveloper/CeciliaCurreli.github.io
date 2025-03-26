@@ -1,12 +1,11 @@
-- date: March 2025
-  description: 'I am proud to be part of **two** of my colleagues work that have been accepted to **CVPR 2025**. The first paper is [AnyCam](publications/anycam) by [Felix Wimbauer](https://fwmb.github.io) and the second paper is [Nonisotropic Gaussian Diffusion for Realistic 3D Human Motion Prediction](https://ceveloper.github.io/publications/skeletondiffusion) by [Cecilia Curreli](https://ceveloper.github.io).'
-- date: March 2024
-  description: 'Happy to announce that my [students](https://keonhee-han.github.io) paper [Boosting Self-Supervision for Single View Scene Completion via Knowledge Distillation](https://keonhee-han.github.io/publications/kdbts/) was accepted to **CVPR 2024**'
-- date: November 2023
-  description: 'Our paper [S4C: Self-Supervised Semantic Scene Completion with Neural Fields](https://ahayler.github.io/publications/s4c/) has been accepted as one of the *spotlight* papers at **3DV 2024**'
-- date: April 2023
-  description: 'Happy to announce that our paper [Learning Correspondence Uncertainty via Differentiable Nonlinear Least Squares](publications/dnls_covs/) was accepted to **CVPR 2023**'
-- date: April 2022
-  description: '[The Probabilistic Normal Epipolar Constraint for Frame-To-Frame Rotation Optimization under Uncertain Feature Positions](publications/pnec/) was accepted to **CVPR 2022**'
-- date: April 2022
-  description: 'Started my PhD at the [Computer Vision Group](https://cvg.cit.tum.de) at TUM under the guidance of Prof. Daniel Cremers'
+
+- date: February 2025
+  description: '[Nonisotropic Gaussian Diffusion](https://ceveloper.github.io/publications/skeletondiffusion/) was accepted to **CVPR 2025**'
+- date: January 2025
+  description: 'Pre-print of [Nonisotropic Gaussian Diffusion for Realistic 3D Human Motion Prediction](https://ceveloper.github.io/publications/skeletondiffusion/) is online'
+- date: December 2024
+  description: 'Our paper [ZDySS - Zero-Shot Dynamic Scene Stylization using Gaussian Splatting](https://arxiv.org/abs/2501.03875) is online'
+- date: August 2024
+  description: 'Our paper [Gaussian Splatting in Style](https://arxiv.org/abs/2403.08498) was accepted to **GCPR 2024**'
+- date: September 2023
+  description: 'I joined the [Computer Vision Group](https://cvg.cit.tum.de) at TUM as a PhD candidate with Prof. Daniel Cremers'

@@ -2,8 +2,8 @@
 layout: publications
 permalink: /publications/gss/
 external_link: https://abhi-rf.github.io/publications/gss/
-date: 2024_09_10 # determines sorting just take the date of the first publication as YYYY_MM_DD
-image: assets/qualitative.gif
+date: 2024_04_11 # determines sorting just take the date of the first publication as YYYY_MM_DD
+image: /assets/qualitative.gif
 # image_mouseover: assets/knowledge_distillation.png
 
 title: "Gaussian Splatting in Style"
@@ -33,11 +33,14 @@ description: "We are the first to employ Gaussian Splatting to solve the task of
 
 
 links:
-    - name: Project Page
-      link: https://abhi-rf.github.io/publications/gss/
+    # - name: Project Page
+    #   link: https://keonhee-han.github.io/publications/kdbts/
     - name: Paper
       link: https://arxiv.org/abs/2403.08498
       style: "bi bi-file-earmark-richtext"
+    # - name: Code
+    #   link: https://github.com/keonhee-han/KDBTS
+    #   style: "bi bi-github"
 
 
 citation: '@article{saroha2024gaussian,
@@ -46,5 +49,8 @@ citation: '@article{saroha2024gaussian,
   journal={arXiv preprint arXiv:2403.08498},
   year={2024}
 }'
+
+
+# acknowledgements: 'This work was supported by the ERC Advanced Grant SIMULACRON, by the Munich Center for Machine Learning, and by the German Federal Ministry of Transport and Digital Infrastructure (BMDV) under grant 19F2251F for the ADAM project.'
 
 ---

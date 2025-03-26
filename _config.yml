@@ -57,27 +57,27 @@ plugins:
 
 
 author:
-  name   : "Dominik Muhle"
+  name   : "Cecilia Curreli"
   avatar : "/assets/images/profile-photo.jpg"
   bio    : >- 
     PhD student @ <a href="https://cvg.cit.tum.de">TUM CVG</a><br>
-    dominik.muhle@tum.de
+    cecilia.curreli@tum.de
   links:
     - label: "CVG Page"
       icon: "fa-solid fa-fw fa-flask"
-      url: "https://cvg.cit.tum.de/members/muhled"
+      url: "https://cvg.cit.tum.de/members/curreli"
     - label: "LinkedIn"
       icon: "fa-brands fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/dominik-muhle-a6b487149/"
+      url: "https://de.linkedin.com/in/ceciliacurreli"
     - label: "Google Scholar"
       icon: "fa-brands fa-fw fa-google-scholar"
-      url: "https://scholar.google.com/citations?user=IyFJMlQAAAAJ&hl=en"
+      url: "https://scholar.google.com/citations?user=Y6wCaD4AAAAJ&hl=en"
     - label: "X (Twitter)"
-      icon: "fa-brands fa-fw fa-x-twitter"
-      url: "https://twitter.com/dominikmuhle"
-    - label: "GitHub"
-      icon: "fa-brands fa-fw fa-github"
-      url: "https://github.com/dominikmuhle"
+#       icon: "fa-brands fa-fw fa-x-twitter"
+#       url: "https://twitter.com/dominikmuhle"
+#     - label: "GitHub"
+#       icon: "fa-brands fa-fw fa-github"
+#       url: "https://github.com/dominikmuhle"
 
 # ==================================================== COLLECTIONS ====================================================
 collections:
