@@ -7,7 +7,7 @@ date: 2024_04_11 # determines sorting just take the date of the first publicatio
 # image_mouseover: assets/knowledge_distillation.png
 
 title: "ZDySS – Zero-Shot Dynamic Scene Stylization using Gaussian Splatting"
-# venue: GCPR, 2024
+venue: Arxiv, 2024
 authors:
   - name: abhisheksaroha
     affiliations: "1"
