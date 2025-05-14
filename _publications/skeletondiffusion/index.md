@@ -24,9 +24,9 @@ authors:
     affiliations: "1,2"
 affiliations:
   - name: tum
-    length: short
+    length: long
   - name: mcml
-    length: short
+    length: long
 
 
 description: "SkeletonDiffusion is a novel nonisotropic diffusion approach for 3D Human Motion Prediction, and the first computer vision method to show that nonisotropic diffusion leads to unequivocally better performance without computational drawbacks for a structured task. We generate diverse and realistic motions achieving state-of-the-art performance on the Human3.6M and AMASS datasets."
@@ -46,7 +46,7 @@ links:
 
 citation: '@inproceedings{curreli2025nonisotropic,
   title={Nonisotropic Gaussian Diffusion for Realistic 3D Human Motion Prediction},
-  author={Curreli, Cecilia and Muhle, Dominik and Saroha, Abhishek and Ye, Zhenzhang and Marin, Riccardo and Cremers, Daniel},
+  author={Cecilia Curreli and Dominik Muhle and Abhishek Saroha and Zhenzhang Ye and Riccardo Marin and Daniel Cremers},
   booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
   year={2025}
 }'

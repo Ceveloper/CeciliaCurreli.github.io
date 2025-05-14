@@ -3,7 +3,7 @@ layout: publications
 permalink: /publications/zdyss/
 # external_link: https://abhi-rf.github.io/publications/gss/
 date: 2024_04_11 # determines sorting just take the date of the first publication as YYYY_MM_DD
-# image: /assets/qualitative.gif
+image: /assets/teaser_zdyss.png
 # image_mouseover: assets/knowledge_distillation.png
 
 title: "ZDySS – Zero-Shot Dynamic Scene Stylization using Gaussian Splatting"
@@ -35,8 +35,8 @@ description: "We introduce ZDySS, a zero-shot stylization framework for dynamic 
 
 
 links:
-    # - name: Project Page
-    #   link: https://keonhee-han.github.io/publications/kdbts/
+    - name: Project Page
+      link: /publications/zdyss/
     - name: Paper
       link: https://arxiv.org/abs/2501.03875
       style: "bi bi-file-earmark-richtext"
@@ -58,5 +58,5 @@ citation: '@article{saroha2025zdysszeroshotdynamic,
 
 
 # acknowledgements: 'This work was supported by the ERC Advanced Grant SIMULACRON, by the Munich Center for Machine Learning, and by the German Federal Ministry of Transport and Digital Infrastructure (BMDV) under grant 19F2251F for the ADAM project.'
-
 ---
+{% include_relative content.html %}
