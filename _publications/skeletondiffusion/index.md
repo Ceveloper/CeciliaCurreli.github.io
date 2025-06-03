@@ -40,6 +40,11 @@ links:
     - name: Code
       link: https://github.com/Ceveloper/SkeletonDiffusion/tree/main
       style: "bi bi-github"
+    - name: Video
+      link: https://www.youtube.com/watch?v=W9GzdDXN41M
+      style: "bi bi-youtube"
+    - name: Poster
+      link: https://cvpr.thecvf.com/virtual/2025/poster/33243
     # - name: Video
     #   link: # after video was created
     #   style: "bi bi-youtube"
