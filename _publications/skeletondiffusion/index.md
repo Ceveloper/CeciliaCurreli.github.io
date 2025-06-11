@@ -45,9 +45,9 @@ links:
       style: "bi bi-youtube"
     - name: Poster
       link: https://cvpr.thecvf.com/virtual/2025/poster/33243
-    # - name: Video
-    #   link: # after video was created
-    #   style: "bi bi-youtube"
+    - name: Demo
+      link: https://huggingface.co/spaces/SkeletonDiffusion/SkeletonDiffusion_Demo
+      # style: "bi bi-youtube"
 
 citation: '@inproceedings{curreli2025nonisotropic,
   title={Nonisotropic Gaussian Diffusion for Realistic 3D Human Motion Prediction},
