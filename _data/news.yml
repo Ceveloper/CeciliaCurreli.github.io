@@ -1,11 +1,15 @@
 
-- date: February 2025
+- date: May 2025
+  description: 'I joined the MCML delegation to present our research at NYU, Cornell, Cornell Tech, Harvard, and MIT.'
+- date: Apr 2025
+  description: 'Our paper [Prototype Augmented Hypernetworks](https://arxiv.org/abs/2505.07450) was accepted to **CVPR 2025 Workshop**'
+- date: Feb 2025
   description: '[Nonisotropic Gaussian Diffusion](https://ceveloper.github.io/publications/skeletondiffusion/) was accepted to **CVPR 2025**'
-- date: January 2025
+- date: Jan 2025
   description: 'Pre-print of [Nonisotropic Gaussian Diffusion for Realistic 3D Human Motion Prediction](https://ceveloper.github.io/publications/skeletondiffusion/) is online'
-- date: December 2024
+- date: Dec 2024
   description: 'Our paper [ZDySS - Zero-Shot Dynamic Scene Stylization using Gaussian Splatting](https://arxiv.org/abs/2501.03875) is online'
-- date: August 2024
+- date: Aug 2024
   description: 'Our paper [Gaussian Splatting in Style](https://arxiv.org/abs/2403.08498) was accepted to **GCPR 2024**'
-- date: September 2023
+- date: Sep 2023
   description: 'I joined the [Computer Vision Group](https://cvg.cit.tum.de) at TUM as a PhD candidate with Prof. Daniel Cremers'
