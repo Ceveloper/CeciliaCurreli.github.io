@@ -94,5 +94,9 @@ defaults:
       type: posts
     values:
       layout: single
+  - scope:
+      path: "assets"
+    values:
+      layout: null
       # author_profile: true
       # permalink: /:name/
