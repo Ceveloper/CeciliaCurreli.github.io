@@ -22,14 +22,14 @@ author_profile: true
                 <img src="{{ '/assets/images/profile-photo.jpg' | relative_url }}" alt="Profile picture" class="about-photo">
             </div>
             I am pursuing my PhD at the Technical University of Munich  with Prof. Cremers - Check out the awesome work of the <a href="https://cvg.cit.tum.de/publications">Computer Vision Group</a>! 
-            My research focuses on generative AI, in particular generative diffusion models for 4D computer vision and 3D human motion prediction. What intrigues me is the probabilistic nature of reality and its connection to temporal dimension.
+            My research focuses on generative AI, in particular generative diffusion models for 4D computer vision and 3D human motion prediction. What intrigues me is the probabilistic nature of reality and what we still can learn from the temporal dimension.
             <br><br>
-            In the spring of 2025 I joined as a visiting researcher the Scene Representation group of Prof. Sitzmann at CSAIL, MIT. 
+            This spring I joined the Scene Representation group of Prof. Vincent Sitzmann at CSAIL, MIT, as a visiting researcher. 
             I am a junior member of the <a href="https://mcml.ai/">Munich Center of Machine Learning</a>, one of six national AI Competence Centers in Germany.
             <br><br>
             Before being part of CVG, I joined the <a href="https://www.satoh-lab.nii.ac.jp/">Lab</a> of Prof. Shin'ichi Satoh at the University of Tokyo and National Institute of Informatics in Tokyo. 
-            I completed my Master's thesis with Prof. Nießner and my Bachelor's degree with Prof. Leal Taixè at TUM. With Prof. Steffen Glaser (Munich Quantum Valley initiative and Bavarian NMR Center), I pursued research related to sequences of quantum particles. In 2018, I was part of the Chinese Academy of Sciences in Suzhou as an intern with Prof. Xiaodong.
-            Two times have been a recipient of scholarships from the German Academic Exchange Service (DAAD), and I have been awarded the FemTec scholarship during my Master's studies.
+            I completed my Master's thesis with Prof. Matthias Nießner and my Bachelor's degree with Prof. Leal Taixè. With Prof. Steffen Glaser (Munich Quantum Valley initiative and Bavarian NMR Center), I pursued research related to sequences of quantum particles. In 2018, I was part of the Chinese Academy of Sciences in Suzhou as an intern with Prof. Xiaodong.
+            I have been a recipient of two scholarships from the German Academic Exchange Service (DAAD), and have been awarded the FemTec scholarship during my Master's studies.
 
         </div>
     </section>
@@ -58,46 +58,47 @@ author_profile: true
         <h2>Publications</h2>
 
         <div class="publications-preview">
-          {% assign latest_pubs = site.publications | reverse %}
-          {% for publication in latest_pubs limit:5 %}
-          <div class="publication-block">
-            {% assign base_link = publication.external_link | default: publication.permalink %}
-            {% assign image = base_link | append: publication.image %}
-            <div class="publication-thumbnail">
-              <a href="{{ base_link }}">
-                <img src="{{ image }}" alt="{{ publication.title }}">
-              </a>
-            </div>
+  {% assign latest_pubs = site.publications | reverse %}
+  {% for publication in latest_pubs limit:5 %}
+  <div class="publication-block">
+    {% assign base_link = publication.external_link | default: publication.permalink %}
+    {% assign image = base_link | append: publication.image %}
+    <div class="publication-thumbnail">
+      <a href="{{ base_link }}">
+        <img src="{{ image }}" alt="{{ publication.title }}">
+      </a>
+    </div>
 
-            <div class="publication-data">
-              <h3 class="publication-title">
-                <a href="{{ base_link }}">{{ publication.title }}</a>
-              </h3>
-              <div class="publication-venue">
-                <span>{{ publication.venue }}</span>
-                {% for award in publication.awards %}
-                <span class="publication-venue-emph">{{ award }}</span>
-                {% endfor %}
-              </div>
-              <div class="publication-authors">
-                {% for author_id in publication.authors %}
-                  {% assign author = site.data.authors_external[author_id.name] %}
-                  {% if author == nil %}
-                    {% assign author = site.data.authors_internal[author_id.name] %}
-                  {% endif %}
-                  <span class="author-block {% if author.is_me %}author-me{% endif %}">
-                    {% if author.is_me %}
-                      {{ author.first_name }} {{ author.middle_name }} {{ author.last_name }}
-                    {% else %}
-                      <a href="{{author.website}}">{{ author.first_name }} {{ author.middle_name }} {{ author.last_name}}</a>
-                    {% endif %}
-                  </span>
-                {% endfor %}
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
+    <div class="publication-data">
+      <h3 class="publication-title">
+        <a href="{{ base_link }}">{{ publication.title }}</a>
+      </h3>
+      <div class="publication-venue">
+        <span>{{ publication.venue }}</span>
+        {% for award in publication.awards %}
+        <span class="publication-venue-emph">{{ award }}</span>
+        {% endfor %}
+      </div>
+      <div class="publication-authors">
+        {% for author_id in publication.authors %}
+          {% assign author = site.data.authors_external[author_id.name] %}
+          {% if author == nil %}
+            {% assign author = site.data.authors_internal[author_id.name] %}
+          {% endif %}
+          <span class="author-block {% if author.is_me %}author-me{% endif %}">
+            {% if author.is_me %}
+              {{ author.first_name }} {{ author.middle_name }} {{ author.last_name }}
+            {% else %}
+              <a href="{{author.website}}">{{ author.first_name }} {{ author.middle_name }} {{ author.last_name}}</a>
+            {% endif %}
+          </span>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
 
         <p class="pub-more">
           See my <a href="{{ '/publications/' | relative_url }}">full list of publications</a>.
