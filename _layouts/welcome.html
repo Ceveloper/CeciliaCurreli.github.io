@@ -55,7 +55,7 @@ author_profile: true
 
       <!-- Publications -->
       <section id="publications">
-        <h2>Publications</h2>
+        <h2>Research</h2>
 
         <div class="publications-preview">
   {% assign latest_pubs = site.publications | reverse %}
@@ -63,11 +63,11 @@ author_profile: true
   <div class="publication-block">
     {% assign base_link = publication.external_link | default: publication.permalink %}
     {% assign image = base_link | append: publication.image %}
-    <div class="publication-thumbnail">
-      <a href="{{ base_link }}">
-        <img src="{{ image }}" alt="{{ publication.title }}">
-      </a>
-    </div>
+    <a href="{{ base_link }}">
+      <div class="publication-thumbnail"
+          style="background-image: url('{{ image }}')">
+      </div>
+    </a>
 
     <div class="publication-data">
       <h3 class="publication-title">

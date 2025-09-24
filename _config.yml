@@ -93,7 +93,7 @@ defaults:
       path: "_pages"
       type: posts
     values:
-      layout: single
+      layout: single 
   # - scope:
   #     path: "assets"
   #   values:

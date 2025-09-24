@@ -64,7 +64,7 @@
 
 /* Make the about section text smaller */
 #about {
-  font-size: 0.7rem;   /* default is ~1rem, reduce a bit */
+  font-size: 0.8rem;   /* default is ~1rem, reduce a bit */
   line-height: 1.5;    /* keep it readable */
   color: #333;         /* optional: softer black */
 }
@@ -93,17 +93,19 @@
 
 @media (max-width: 600px) {
   .about-photo-wrapper {
-    float: none;
-    width: 60%;
-    height: auto; 
-    margin: 0 auto 1rem auto;
+    float: right;           /* ✅ keep on the right */
+    width: 150px;           /* smaller square on mobile */
+    height: 150px;          /* force square */
+    margin: 0 0 0.75rem 0.75rem; /* tighter margin */
   }
+
   .about-photo {
-    height: auto !important;
-    object-position: center top !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    object-position: center top; /* keep face/head visible */
   }
 }
-
 
 .welcome-name {
   font-size: 2.5rem;           /* very large */
@@ -115,7 +117,6 @@
 
 }
 
-/* Scrollable container */
 /* Scrollable container */
 .news-scroll {
   max-height: 300px;          /* adjust height */
@@ -169,58 +170,68 @@
   line-height: 1.4;
 }
 
-/* Optional: mobile stacking */
+/* Optional: mobile tweaks */
 @media (max-width: 600px) {
   .news-list li {
-    flex-direction: column;
-    border-bottom: 1px solid #eee;
+    flex-direction: row;       /* ✅ keep side-by-side */
+    align-items: flex-start;   /* date aligns with top of text */
   }
+
   .news-date {
-    margin-bottom: 0.25rem;
+    flex: 0 0 45px;            /* slightly narrower on small screens */
+    margin-right: 0.5rem;      /* smaller gap */
+    padding-left: 5px;         /* reduce padding */
+    font-size: 0.65rem;        /* shrink text */
+  }
+
+  .news-text {
+    font-size: 0.75rem;        /* shrink news text slightly */
+    line-height: 1.3;
   }
 }
+
 
 .publications-preview .publication-block {
-  display: grid;
-  grid-template-columns: 80px 1fr; /* thumbnail column + text column */
-  column-gap: 1rem;
-  align-items: start;             /* top-aligns image with first line of text */
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end; /* 🔑 aligns image with first line of text */
   padding: 0.5rem 0;
+  flex-wrap: nowrap;       /* keep image + text side by side */
+  margin-bottom: 1.5rem;
 }
 
-.publication-thumbnail img {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
+.publication-thumbnail {
+  width: 100px;
+  height: 100px;
+  background-size: cover;     /* crop to fill */
+  background-position: center;
   border-radius: 4px;
+  flex-shrink: 0;
+  padding: 0.5rem 0;
 }
 
 .publication-data {
   font-size: 0.85rem;
   line-height: 1.3;
+  min-width: 200px;
 }
 
-.publication-title a {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #111;
-  text-decoration: none;
-}
 
-.publication-title a:hover {
-  text-decoration: underline;
-}
-
-.publication-venue,
-.publication-authors {
-  font-size: 0.8rem;
-  color: #555;
-}
-
-/* Mobile stacking */
-@media (max-width: 600px) {
-  .publications-preview .publication-block {
-    grid-template-columns: 1fr; /* stack image above text */
-    row-gap: 0.5rem;
+/* 📱 Mobile adjustments */
+@media (max-width: 768px) {
+  .publication-block {
+    align-items: flex-start;   /* align image top with text top */
   }
+
+  .publication-thumbnail {
+    width: 80px;           /* smaller square for mobile */
+    height: 80px;
+  }
+}
+
+.pub-more {
+  font-size: 0.9rem;   /* slightly smaller than normal text */
+  line-height: 1.4;    /* good readability */
+  margin-top: 1rem;    /* spacing from above section */
+  text-align: left;    /* keep alignment consistent */
 }
