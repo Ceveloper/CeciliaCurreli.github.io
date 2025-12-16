@@ -44,16 +44,20 @@ links:
       link: https://www.youtube.com/watch?v=W9GzdDXN41M
       style: "bi bi-youtube"
     - name: Poster
-      link: https://cvpr.thecvf.com/virtual/2025/poster/33243
+      link: /publications/skeletondiffusion/assets/cvpr25_skeletondiffusion_poster.pdf
+      style: "bi bi-file-earmark-pdf"
     - name: Demo
       link: https://huggingface.co/spaces/SkeletonDiffusion/SkeletonDiffusion_Demo
+      # style: "hf-icon"
       # style: "bi bi-youtube"
 
-citation: '@inproceedings{curreli2025nonisotropic,
+citation: '@InProceedings{curreli2025nonisotropic,
   title={Nonisotropic Gaussian Diffusion for Realistic 3D Human Motion Prediction},
   author={Cecilia Curreli and Dominik Muhle and Abhishek Saroha and Zhenzhang Ye and Riccardo Marin and Daniel Cremers},
-  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-  year={2025}
+  booktitle = {Proceedings of the Computer Vision and Pattern Recognition Conference (CVPR)},
+    month     = {June},
+    year      = {2025},
+    pages     = {1871-1882}
 }'
 # author       = {Baez, John C. and Lauda, Aaron D.},
 # date         = {2004-10-27},

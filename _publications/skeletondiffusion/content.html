@@ -1,17 +1,73 @@
   
   
+<section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div class="video-container" style="margin: 0em 0;">
+          <iframe src="https://www.youtube.com/embed/W9GzdDXN41M" allowfullscreen style="width: 650px; height: 365px;"></iframe>
+        </div>
+        <div class="columns is-centered has-text-centered">
+          <div>
+            <style>
+              .video-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                margin: 0em 0;
+              }
+              .video-container iframe {
+                width: 800px;
+                height: 450px;
+                max-width: 100%;
+                border: none;
+              }
+              @media (max-width: 900px) {
+                .video-container iframe {
+                  width: 100%;
+                  height: 56vw;
+                  min-height: 200px;
+                }
+              }
+            </style>
+            <!-- <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/W9GzdDXN41M" allowfullscreen></iframe>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+ <section class="section">
+    <div class="container">
+
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Probabilistic human motion prediction aims to forecast multiple possible future movements from past observations. While current approaches report high diversity and realism, they often generate motions with undetected limb stretching and jitter. To address this, we introduce SkeletonDiffusion, a latent diffusion model that embeds an explicit inductive bias on the human body within its architecture and training. Our model is trained with a novel nonisotropic Gaussian diffusion formulation that aligns with the natural kinematic structure of the human skeleton. Results show that our approach outperforms conventional isotropic alternatives, consistently generating realistic predictions while avoiding artifacts such as limb distortion. Additionally, we identify a limitation in commonly used diversity metrics, which may inadvertently favor models that produce inconsistent limb lengths within the same sequence. SkeletonDiffusion sets a new benchmark on three real-world datasets, outperforming various baselines across multiple evaluation metrics.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
   <section class="hero is-small">
     <div class="hero-body">
       <div class="container">
-        <div class="columns is-centered has-text-centered">
-          <style>
-          .title.is-4.has-text-centered {
-            color: #000000; /* Change this to your desired default color */
-          }
-          </style>
-          <h2 class="title is-4 has-text-centered">
-            From the <b style="color: rgb(128, 143, 154);">past</b>, predict the <b style="color: rgb(46, 108, 157);">future</b>. 
-          </h2>
+        <div class="columns is-centered has-text-centered">        
           <div>
             <style>
               .video-container {
@@ -38,28 +94,28 @@
           </div>
         </div>
         <div class="gif-sync-row" style="display: flex; justify-content: center; gap: 0px;">
-          <img class="sync-gif" src="./assets/example_amass_86_Transitions/pred_far_0_obj.gif" alt="Sync Example 1" width="180" height="120" loading="eager">
-          <img class="sync-gif" src="./assets/example_amass_86_Transitions/pred_far_3_obj.gif" alt="Sync Example 2" width="180" height="120" loading="eager">
-          <img class="sync-gif" src="./assets/example_amass_86_Transitions/pred_far_4_obj.gif" alt="Sync Example 3" width="180" height="120" loading="eager">
-          <img class="sync-gif" src="./assets/example_amass_86_Transitions/pred_far_6_obj.gif" alt="Sync Example 4" width="180" height="120" loading="eager">
-          <img class="sync-gif" src="./assets/example_amass_86_Transitions/pred_far_7_obj.gif" alt="Sync Example 5" width="180" height="120" loading="eager">
+          <img class="sync-gif" src="./assets/example_amass_86_Transitions/obs+pred_far_0_obj.gif" alt="Sync Example 1" width="180" height="120" loading="eager">
+          <img class="sync-gif" src="./assets/example_amass_86_Transitions/obs+pred_far_3_obj.gif" alt="Sync Example 2" width="180" height="120" loading="eager">
+          <img class="sync-gif" src="./assets/example_amass_86_Transitions/obs+pred_far_4_obj.gif" alt="Sync Example 3" width="180" height="120" loading="eager">
+          <img class="sync-gif" src="./assets/example_amass_86_Transitions/obs+pred_far_6_obj.gif" alt="Sync Example 4" width="180" height="120" loading="eager">
+          <img class="sync-gif" src="./assets/example_amass_86_Transitions/obs+pred_far_7_obj.gif" alt="Sync Example 5" width="180" height="120" loading="eager">
         </div>
         <!-- <div style="text-align:center; margin-top:0.5em; font-size:0.95em; color:#888;">
           SkeletonDiffusion generates diverse and realistic motions.
         </div> -->
         <div class="gif-sync-row" style="display: flex; justify-content: center; gap: 0px;">
-          <img class="sync-gif" src="./assets/example_amass_86_Transitions/pred_far_8_obj.gif" alt="Sync Example 6" width="180" height="120" loading="eager">
-          <img class="sync-gif" src="./assets/example_amass_86_Transitions/pred_far_9_obj.gif" alt="Sync Example 7" width="180" height="120" loading="eager">
-          <img class="sync-gif" src="./assets/example_amass_86_Transitions/pred_far_10_obj.gif" alt="Sync Example 8" width="180" height="120" loading="eager">
-          <img class="sync-gif" src="./assets/example_amass_86_Transitions/pred_far_11_obj.gif" alt="Sync Example 9" width="180" height="120" loading="eager">
-          <img class="sync-gif" src="./assets/example_amass_86_Transitions/pred_far_13_obj.gif" alt="Sync Example 10" width="180" height="120" loading="eager">
+          <img class="sync-gif" src="./assets/example_amass_86_Transitions/obs+pred_far_8_obj.gif" alt="Sync Example 6" width="180" height="120" loading="eager">
+          <img class="sync-gif" src="./assets/example_amass_86_Transitions/obs+pred_far_9_obj.gif" alt="Sync Example 7" width="180" height="120" loading="eager">
+          <img class="sync-gif" src="./assets/example_amass_86_Transitions/obs+pred_far_10_obj.gif" alt="Sync Example 8" width="180" height="120" loading="eager">
+          <img class="sync-gif" src="./assets/example_amass_86_Transitions/obs+pred_far_11_obj.gif" alt="Sync Example 9" width="180" height="120" loading="eager">
+          <img class="sync-gif" src="./assets/example_amass_86_Transitions/obs+pred_far_13_obj.gif" alt="Sync Example 10" width="180" height="120" loading="eager">
         </div>
         <div class="gif-sync-row" style="display: flex; justify-content: center; gap: 0px;">
-          <img src="./assets/example_amass_86_Transitions/pred_far_16_obj.gif" alt="Example 10" width="180" height="120" loading="eager">
-          <img src="./assets/example_amass_86_Transitions/pred_far_18_obj.gif" alt="Example 11"  width="180" height="120" loading="eager">
-          <img src="./assets/example_amass_86_Transitions/pred_far_38_obj.gif" alt="Example 12"  width="180" height="120" loading="eager">
-          <img src="./assets/example_amass_86_Transitions/pred_far_47_obj.gif" alt="Example 13"  width="180" height="120" loading="eager">
-          <img src="./assets/example_amass_86_Transitions/pred_closest_GT_obj.gif" alt="Example 14"  width="180" height="120" loading="eager">
+          <img src="./assets/example_amass_86_Transitions/obs+pred_far_16_obj.gif" alt="Example 10" width="180" height="120" loading="eager">
+          <img src="./assets/example_amass_86_Transitions/obs+pred_far_18_obj.gif" alt="Example 11"  width="180" height="120" loading="eager">
+          <img src="./assets/example_amass_86_Transitions/obs+pred_far_38_obj.gif" alt="Example 12"  width="180" height="120" loading="eager">
+          <img src="./assets/example_amass_86_Transitions/obs+pred_far_47_obj.gif" alt="Example 13"  width="180" height="120" loading="eager">
+          <img src="./assets/example_amass_86_Transitions/obs+pred_closest_GT_obj.gif" alt="Example 14"  width="180" height="120" loading="eager">
         </div>
       </div>
     </div>
@@ -80,32 +136,120 @@
         setTimeout(syncGifs, 200); // slight delay to ensure images are loaded
       });
     </script>
+         <style>
+          .title.is-4.has-text-centered {
+            color: #000000; /* Change this to your desired default color */
+          }
+          </style>
+          <h2 class="title is-4 has-text-centered">
+            From the <b style="color: rgb(102, 178, 127);">past</b>, predict the <b style="color: rgb(46, 108, 157);">future</b>. 
+          </h2>
+        <p></p>
+        <p></p>
   </section>
-  <section class="section">
-    <div class="container">
 
-      <!-- <h2 class="title is-3 has-text-centered"  style="margin-bottom: 2em;"> 
-        <span style="color: #8888;">SkeletonDiffusion.</span>
-        </h2>
-      <div class="content has-text-justified" style="margin-bottom: 2em;">
-        <p>
-          SkeletonDiffusion is a method for probabilistic 3D human motion prediction, producing plausible motion predictions that are both natural and consistent with the observed history. 
-          While current approaches report high diversity and realism, they often generate motions with undetected limb stretching and jitter.  Additionally, we identify a limitation in commonly used diversity metrics, which may inadvertently favor models that produce inconsistent limb lengths within the same sequence. 
-          Instead, SkeletonDiffusion addressing simultaneously <em>diversity</em> and <em>realism</em>.      
-        </p>
+ 
+
+
+    <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Stochastic Human Motion Prediction</h2>
+          <div class="content has-text-justified">
+            <p>
+              In this work, we address the problem of predicting human motion based on observed past movements, known as Human Motion Prediction (HMP). Specifically, from a temporal sequence of human joint positions, we aim to forecast their evolution in subsequent frames. We aim to predict not a single, deterministic future, but generate a wide range of diverse future motions (Stochastic HMP).
+            </p>
+          </div>
+        </div>
       </div>
-      <div style="display: flex; justify-content: flex-end; align-items: flex-start; margin-bottom: 2em;">
-        <img src="./assets/length_of_collarbone.png" alt="Length of Collarbone" style="max-width: 220px; height: auto;">
-      </div> -->
+    </div>
+  </section>
+
 
   <section class="section hero is-light">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">Abstract</h2>
+        <h2 class="title is-3">Nonisotropic Gaussian Diffusion</h2>
           <div class="content has-text-justified">
             <p>
-              Probabilistic human motion prediction aims to forecast multiple possible future movements from past observations. While current approaches report high diversity and realism, they often generate motions with undetected limb stretching and jitter. To address this, we introduce SkeletonDiffusion, a latent diffusion model that embeds an explicit inductive bias on the human body within its architecture and training. Our model is trained with a novel nonisotropic Gaussian diffusion formulation that aligns with the natural kinematic structure of the human skeleton. Results show that our approach outperforms conventional isotropic alternatives, consistently generating realistic predictions while avoiding artifacts such as limb distortion. Additionally, we identify a limitation in commonly used diversity metrics, which may inadvertently favor models that produce inconsistent limb lengths within the same sequence. SkeletonDiffusion sets a new benchmark on three real-world datasets, outperforming various baselines across multiple evaluation metrics.
+              We replace the conventional isotropic
+              Gaussian diffusion training and sampling procedure with a novel nonisotropic formulation that accounts for joint relations directly in the
+              generation process. 
+            </p>
+            <p>
+               More in detail, in denoising diffusion models the forward diffusion process employed during training adds Gaussian noise to the data at each diffusion timestep. In conventional diffusion approaches, such noise is sampled from a Gaussian distribution with diagonal covariance <b>&Sigma;</b><sub>t</sub>, hence the process is defined as <i>isotropic</i>. 
+                 <style>
+                  .image-container {
+                    background-color: white; /* white background */
+                    padding: 0em;            /* optional, space around the image */
+                    text-align: center;      /* center the image */
+                    max-width: 100%;          /* container can take up more of the page */
+                    margin: 0 auto;          /* center the container */
+                  }
+
+                    .image-container img {
+                      display: inline-block; 
+                      max-width: 100%; 
+                      height: auto;
+                    }
+                  </style>
+
+                  <div class="image-container">
+                    <img src="assets/iso_diff.png" alt="Isotropic Gaussian Diffusion">
+                  </div>
+              </p>
+              The isotropic formulation does not take into account that the HMP problem is defined by the skeleton kinematic graph (given by the adjacency matrix A). 
+              We exploit this knowledge to define a fixed, non-diagonal noise covariance for the diffusion process, based on correlations <b>&Sigma;</b><sub>N</sub> extracted from the adjacency matrix. 
+              <p>
+                  <style>
+                  .image-container {
+                    background-color: white; /* white background */
+                    padding: 0em;            /* optional, space around the image */
+                    text-align: center;      /* center the image */
+                    max-width: 100%;          /* container can take up more of the page */
+                    margin: 0 auto;          /* center the container */
+                  }
+
+                    .image-container img {
+                      display: inline-block; 
+                      max-width: 100%; 
+                      height: auto;
+                    }
+                  </style>
+
+                  <div class="image-container">
+                    <img src="assets/correlation_eq.png" alt="Correlation Matrix">
+                  </div>
+            </p>
+
+
+              From here we derive all necessary equations for diffusion training and sampling. To the best of our knowledge, this is the first nonisotropic formulation for a structured problem.
+              <p>
+                  <style>
+                  .image-container {
+                    background-color: white; /* white background */
+                    padding: 0em;            /* optional, space around the image */
+                    text-align: center;      /* center the image */
+                    max-width: 100%;          /* container can take up more of the page */
+                    margin: 0 auto;          /* center the container */
+                  }
+
+                    .image-container img {
+                      display: inline-block; 
+                      max-width: 100%; 
+                      height: auto;
+                    }
+                  </style>
+
+                  <div class="image-container">
+                    <img src="assets/noniso_diff.png" alt="Nonisotropic Gaussian Diffusion">
+                  </div>
+            </p>
+            <p>
+            The correlated noise easies the generation task for the denoiser network: body joints are not assumed independet from each other (i.i.d) and the noise suggests that connected joints should be diffused similarly. 
+            As shown in our experiments, the nonisotropic formulation achieves better performance than the isotropic approach, requires fewer parameters and comes at no extra computational cost.   
             </p>
           </div>
         </div>
@@ -113,246 +257,147 @@
     </div>
   </section>
 
-    <!-- <section class="section">
-      <div class="container">
-      <h2 class="title is-3 has-text-centered"> 
-        <span style="color: #00000088;">SkeletonDiffusion</span>
-         </h2>
-      <div class="content has-text-justified" style="margin-bottom: 2em;">
-        <p>           -->
-          <!-- Due to an explicit inductive bias on the human body within its architecture and training scheme. Our model is trained with a novel nonisotropic Gaussian diffusion formulation that aligns with the natural kinematic structure of the human skeleton. Results show that our approach outperforms conventional isotropic alternatives, consistently generating realistic predictions while avoiding artifacts such as limb distortion.
 
-          To address this, we introduce SkeletonDiffusion, a latent diffusion model that embeds an SkeletonDiffusion sets a new benchmark on three real-world datasets, outperforming various baselines across multiple evaluation metrics.
-          
-                    Conditioned on a sequence of <b style="color: rgb(128, 143, 154);">past movement</b> it aims to generate diverse and realistic <b style="color: rgb(46, 108, 157);">future motions</b>.  -->
-          <!-- SkeletonDiffusion is a method for probabilistic 3D human motion prediction, producing plausible motion predictions that are both natural and consistent with the observed history. 
-          While current approaches report high diversity and realism, they often generate motions with undetected limb stretching and jitter.  Additionally, we identify a limitation in commonly used diversity metrics, which may inadvertently favor models that produce inconsistent limb lengths within the same sequence. 
-          Instead, SkeletonDiffusion addresses simultaneously <em>diversity</em> and <em>realism</em>.      
 
-        </p>
-      </div> -->
-
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
-        <div class="column is-three-thirds">
-          <meta charset="UTF-8">
-          <!-- <h2 class="title is-3 has-text-left">Lightspeed</h2> -->
-          <p class="content has-text-justified">
-          <!-- <br><br>    
-          Our formulation leads to geometrically-aware features which enables state-of-the-art performance on correspondence estimation while being significantly more efficient—it surpasses competitors on multiple datasets while reducing computation time by 98.2%.
-          <br><br>     -->
-          <!-- <div class="columns is-multiline is-centered">
-            <div class="column is-one-quarter has-text-centered">
-              Source Image
-            </div>
-            <div class="column is-one-quarter has-text-centered">
-              Target Image
-            </div>
-            <div class="column is-one-quarter has-text-centered">
-              &#x1F98E; GECO vs. Geo [1]
-            </div>
-          </div> -->
-          </p>
-          <div class="column has-text-centered">
-            <!-- <div class="carousel">
-              <button id="carousel-prev">&#10094;</button>
-              <div class="carousel-container">
-                <div class="carousel-item">
-                  <div class="columns is-multiline is-centered">
-                    <div class="column is-one-quarter has-text-centered">
-                      <img class="overlay-gif" src="./assets/05_experiments/pck/CUB_200_2011/bird/dinov2_b14_518_upft1/src_1x_7_crop.png" />
-                    </div>
-                    <div class="column is-one-quarter has-text-centered">
-                      <img class="overlay-gif" src="./assets/05_experiments/pck/CUB_200_2011/bird/dinov2_b14_518_upft1/trg_1x_7_gt_crop.png" />
-                    </div>
-                    <div class="column is-one-quarter has-text-centered">
-                      {% include comparison_slider.html 
-                        first_img="./assets/05_experiments/pck/CUB_200_2011/bird/cnb1ilp9__/trg_1x_7_crop_blend.gif" 
-                        second_img="./assets/05_experiments/pck/CUB_200_2011/bird/geosc/trg_1x_7_crop_blend.gif" 
-                        first_caption="&#x1F98E; GECO"
-                        second_caption="Geo [1]"
-                      %}
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <div class="columns is-multiline is-centered">
-                    <div class="column is-one-quarter has-text-centered">
-                      <img class="overlay-gif" src="./assets/05_experiments/pck/ap10kpairs/sheep/dinov2_b14_518_upft1/src_11_6_crop.png" />
-                    </div>
-                    <div class="column is-one-quarter has-text-centered">
-                      <img class="overlay-gif" src="./assets/05_experiments/pck/ap10kpairs/sheep/dinov2_b14_518_upft1/trg_11_6_gt_crop.png" />
-                    </div>
-                    <div class="column is-one-quarter has-text-centered">
-                      {% include comparison_slider.html 
-                        first_img="./assets/05_experiments/pck/ap10kpairs/sheep/cnb1ilp9__/trg_11_6_crop_blend.gif" 
-                        second_img="./assets/05_experiments/pck/ap10kpairs/sheep/geosc/trg_11_6_crop_blend.gif" 
-                        first_caption="&#x1F98E; GECO"
-                        second_caption="Geo [1]"
-                      %}
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <div class="columns is-multiline is-centered">
-                    <div class="column is-one-quarter has-text-centered">
-                      <img class="overlay-gif" src="./assets/05_experiments/pck/ap10kpairs/lion/dinov2_b14_518_upft1/src_01_13_crop.png" />
-                    </div>
-                    <div class="column is-one-quarter has-text-centered">
-                      <img class="overlay-gif" src="./assets/05_experiments/pck/ap10kpairs/lion/dinov2_b14_518_upft1/trg_01_13_gt_crop.png" />
-                    </div>
-                    <div class="column is-one-quarter has-text-centered">
-                      {% include comparison_slider.html 
-                        first_img="./assets/05_experiments/pck/ap10kpairs/lion/cnb1ilp9__/trg_01_13_crop_blend.gif" 
-                        second_img="./assets/05_experiments/pck/ap10kpairs/lion/geosc/trg_01_13_crop_blend.gif" 
-                        first_caption="&#x1F98E; GECO"
-                        second_caption="Geo [1]"
-                      %}
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <div class="columns is-multiline is-centered">
-                    <div class="column is-one-quarter has-text-centered">
-                      <img class="overlay-gif" src="./assets/05_experiments/pck/ap10kpairs/bobcat/dinov2_b14_518_upft1/src_10_2_crop.png" />
-                    </div>
-                    <div class="column is-one-quarter has-text-centered">
-                      <img class="overlay-gif" src="./assets/05_experiments/pck/ap10kpairs/bobcat/dinov2_b14_518_upft1/trg_10_2_gt_crop.png" />
-                    </div>
-                    <div class="column is-one-quarter has-text-centered">
-                      {% include comparison_slider.html 
-                        first_img="./assets/05_experiments/pck/ap10kpairs/bobcat/cnb1ilp9__/trg_10_2_crop_blend.gif" 
-                        second_img="./assets/05_experiments/pck/ap10kpairs/bobcat/geosc/trg_10_2_crop_blend.gif" 
-                        first_caption="&#x1F98E; GECO"
-                        second_caption="Geo [1]"
-                      %}
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <div class="columns is-multiline is-centered">
-                    <div class="column is-one-quarter has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">SkeletonDiffusion</h2>
+          <div class="content has-text-justified">
+            <p>
+              We present SkeletonDiffusion, a latent diffusion model considering the skeleton structure and joint categories throughout the entire network with a Graph Convolutional architecture and joint-type attention. 
+              In contrast, existing SHMP approaches either ignore the skeleton’s graph structure or only
+              leverage it at intermediate stage. 
+            </p>
+            <style>
+              .image-container {
+                background-color: white; /* white background */
+                padding: 0em;            /* optional, space around the image */
+                text-align: center;      /* center the image */
+                max-width: 100%;          /* container can take up more of the page */
+                margin: 0 auto;          /* center the container */
+              }
 
-                      <img class="overlay-gif" src="./assets/05_experiments/pck/ap10kpairs/deer/dinov2_b14_518_upft1/src_10_6_crop.png" />
-                    </div>
-                    <div class="column is-one-quarter has-text-centered">
-                      <img class="overlay-gif" src="./assets/05_experiments/pck/ap10kpairs/deer/dinov2_b14_518_upft1/trg_10_6_gt_crop.png" />
-                    </div>
-                    <div class="column is-one-quarter has-text-centered">
-                      {% include comparison_slider.html 
-                        first_img="./assets/05_experiments/pck/ap10kpairs/deer/cnb1ilp9__/trg_10_6_crop_blend.gif" 
-                        second_img="./assets/05_experiments/pck/ap10kpairs/deer/geosc/trg_10_6_crop_blend.gif" 
-                        first_caption="&#x1F98E; GECO"
-                        second_caption="Geo [1]"
-                      %}
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <div class="columns is-multiline is-centered">
-                    <div class="column is-one-quarter has-text-centered">
-                      <img class="overlay-gif" src="./assets/05_experiments/pck/ap10kpairs/giraffe/dinov2_b14_518_upft1/src_01_5_crop.png" />
-                    </div>
-                    <div class="column is-one-quarter has-text-centered">
-                      <img class="overlay-gif" src="./assets/05_experiments/pck/ap10kpairs/giraffe/dinov2_b14_518_upft1/trg_01_5_gt_crop.png" />
-                    </div>
-                    <div class="column is-one-quarter has-text-centered">
-                      {% include comparison_slider.html 
-                        first_img="./assets/05_experiments/pck/ap10kpairs/giraffe/cnb1ilp9__/trg_01_5_crop_blend.gif" 
-                        second_img="./assets/05_experiments/pck/ap10kpairs/giraffe/geosc/trg_01_5_crop_blend.gif" 
-                        first_caption="&#x1F98E; GECO"
-                        second_caption="Geo [1]"
-                      %}
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <button id="carousel-next">&#10095;</button>
-            </div> -->
-          </div>
-          <div>
-            <p class="content has-text-justified">
-            <!-- <br><br>    
-            After marking a query location in the source image, we can observe the correspondence in the target image.
-            <br><br>  -->
-            <!-- <div class="columns is-centered">
-              <div class="column is-one-half">
-                <p class="content has-text-centered">
-                  Source Image
-                </p>
-              </div>
-              <div class="column is-one-half">
-                <p class="content has-text-centered">
-                  &#x1F98E; GECO"
-                </p>
-              </div>
-            </div> -->
-            <!-- <video width="75%" controls>
-              <iframe width="75%" height="420" src="https://www.youtube.com/embed/W9GzdDXN41M" frameborder="0" allowfullscreen></iframe>
-              <source autoplay src="./assets/05_experiments/videos/polarbear.webm" type="video/webm" /> -->
-              <!-- Your browser does not support the video tag.
-            </video> -->
-             <div class="video-container" style="margin: 0em 0;">
-            <iframe width="75%" height="420" src="https://www.youtube.com/embed/W9GzdDXN41M" frameborder="0" allowfullscreen></iframe>
-          </div> 
+              .image-container img {
+                display: inline-block; 
+                max-width: 100%; 
+                height: auto;
+              }
+            </style>
+
+            <div class="image-container">
+              <img src="assets/method_inference.png" alt="Method inference">
+            </div>
+            <br>
+              <p>
+              Our learned latent space is two dimensional, with one dimension representing the human body joints and the other temporally and spatially compressed features. 
+              Since the notion of human body joints is preserved in latent space, we diffuse the feature dimension isotropically as conventionally done in denoising diffusion models, and the joint dimension nonisotropically with a novel nonisotropic Gaussian diffusion formulation.  
             </p>
           </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-</section>
+  </section>
+
+
 
   <section class="hero is-small">
     <div class="hero-body">
       <div class="container">
+        <!-- <h2 class="title is-3 has-text-black">Results</h2>
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
-            <h2 class="title is-3">Coming Soon</h2>
+            <div style="display: inline-block;text-align: center; margin:20px;">
+            <figure style="display: inline-block">
+            <img src="https://neural-icp.github.io/images/sample_2_input.gif" style="vertical-align: top;height:360;margin-bottom: -30px;">
+            <figcaption><b>Input</b></figcaption>
+            </figure>
+            <figure style="display: inline-block">
+            <img src="https://neural-icp.github.io/images/sample_2_smpl.gif" style="vertical-align:top;height:360;margin-bottom: -30px;">
+            <figcaption><b>Registration</b></figcaption>
+            </figure>
+            <figure style="display: inline-block">
+            <img src="https://neural-icp.github.io/images/sample_2_colors.gif" style="vertical-align:top;height:360;margin-bottom: -30px;">
+            <figcaption><b>Correspondences</b></figcaption>
+            </figure>
+            </div>
+            <p class="content has-text-justified">
+            </p>
+          </div>
+        </div> -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+              <h2 class="title is-3 has-text-black">Huggingface Demo</h2>
+
+            <div style="display: inline-block;text-align: center; margin:20px;">
+              <figcaption><b> We test our model on human poses collected from casual videos from YouTube. We use Neural Localizer Fields (<a href="https://istvansarandi.com/nlf/" target="_blank" rel="noopener noreferrer">NLF</a>) to extract 3D poses from a given input video. 
+                Our model is confronted with scenes and action that were not present at training time. 
+                In addition, SkeletonDiffusion has to deal with noisy input, as the pose extraction from NLF is not perfect and the videos naturally contain ambiguities. 
+                SkeletonDiffusion generates plausibles and realistic predictions. 
+                Try it out yourself in our 
+              <a href="https://huggingface.co/spaces/SkeletonDiffusion/SkeletonDiffusion_Demo" target="_blank" rel="noopener noreferrer">
+                HuggingFace 
+                <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" 
+                    alt="Hugging Face" width="20" height="20" style="vertical-align:middle; margin-right:6px;">
+                Demo
+              </a>!
+            </b></figcaption>
+            <br><br>
+            <figure style="display: inline-block">
+              <img src="assets/demo/volleyball_demo.gif" style="vertical-align:top;height:360;margin-bottom: -30px;">
+            </figure>
+            <p>
+            <br><br>
+            <figure style="display: inline-block">
+              <img src="assets/demo/desk_demo.gif" style="vertical-align:top;height:360;margin-bottom: -30px;">
+            </figure>
+            </p> 
+            <br><br>
+            <figure style="display: inline-block">
+              <img src="assets/demo/forrest_gump_demo.gif" style="vertical-align:top;height:360;margin-bottom: -30px;">
+
+            </figure>
+            </div>
             <p class="content has-text-justified">
             </p>
           </div>
         </div>
       </div>
     </div>
+
   </section>
 
-   <!-- <section class="section hero is-light">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Nonisotropic Gaussian Diffusion</h2>
-          <div class="content has-text-justified">
-            <p>
-              Conventional isotropic denoising diffusion models rely on the i.i.d. assumption and assume that no correlations exists within the noise. 
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
 
+  <section class="section hero is-light">
+<h2 class="title is-3 has-text-grey">Poster</h2>  
+<style>
+  @media (max-width: 900px) {
+    .pdf-container iframe {
+      width: 100%;
+      height: 56vw;
+      min-height: 200px;
+    }
+  }
 
-<!-- <embed src="./assets/cvpr25_skeletondiffusion_poster.pdf" width="800px" height="2100px" /> -->
+  .pdf-container iframe {
+    margin-bottom: -30px;
+  }
+  .pdf-container {
+    display: flex;
+    justify-content: center; /* horizontal centering */
+    margin: 0em 0;           /* optional spacing */
+  }
 
+  .pdf-container iframe {
+    width: 90%;   /* adjust as needed */
+    height: 600px;
+    border: none; /* remove default border */
+  }
+</style>
 
-
-
-  <!-- <section class="section hero is-light">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Abstract</h2>
-          <div class="content has-text-justified">
-            <p>
-              Probabilistic human motion prediction aims to forecast multiple possible future movements from past observations. While current approaches report high diversity and realism, they often generate motions with undetected limb stretching and jitter. To address this, we introduce SkeletonDiffusion, a latent diffusion model that embeds an explicit inductive bias on the human body within its architecture and training. Our model is trained with a novel nonisotropic Gaussian diffusion formulation that aligns with the natural kinematic structure of the human skeleton. Results show that our approach outperforms conventional isotropic alternatives, consistently generating realistic predictions while avoiding artifacts such as limb distortion. Additionally, we identify a limitation in commonly used diversity metrics, which may inadvertently favor models that produce inconsistent limb lengths within the same sequence. SkeletonDiffusion sets a new benchmark on three real-world datasets, outperforming various baselines across multiple evaluation metrics.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-
+<div class="pdf-container">
+  <iframe src="assets/cvpr25_skeletondiffusion_poster.pdf"></iframe>
+</div>
+  </section>
   <!-- Probabilistic 3D human motion prediction aims to forecast multiple possible future movements from past observations. While current approaches often generate motions with undetected limb stretching and jitter. We introduce SkeletonDiffusion, a latent diffusion model that embeds an explicit inductive bias on the human body within its architecture and training. Our model is trained with a novel nonisotropic Gaussian diffusion formulation outperforming conventional isotropic alternatives. SkeletonDiffusion sets a new benchmark  across multiple evaluation metrics and datasets. -->
