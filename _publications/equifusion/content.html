@@ -1,29 +1,789 @@
-  
-  <section class="hero is-small">
-    <div class="hero-body" style="padding-top: 0">
-      <div class="container">
-              <div style="text-align: center;">    <img width="60%" src="./assets/teaser.png" />     
-          </div>
+<div id="eqf">
+
+<style>
+  /* ===== EquiFusion page — palette sampled from the paper's Fig.1 kinematics color coding ===== */
+  #eqf {
+    --c-amass:   #9024a8;  /* AMASS purple */
+    --c-nymeria: #2460c0;  /* Nymeria blue */
+    --c-h36m:    #606000;  /* H36M olive */
+    --c-occl:    #c02424;  /* Occlusions red */
+    --grad: linear-gradient(135deg, #9024a8 0%, #2460c0 38%, #606000 68%, #c02424 100%);
+    --c-obs:  #35795e;     /* observed past (green skeleton) */
+    --c-pred: #1f3bbf;     /* predicted future (blue skeleton) */
+    --c-gt:   #8f959e;     /* ground truth / occluded (gray skeleton) */
+    --ink: #1c1e26;
+    --ink-soft: #575b68;
+    --surface: #f6f7f9;
+    --card: #ffffff;
+    --line: #e4e6eb;
+    --radius: 14px;
+    --shadow: 0 6px 24px rgba(28,30,38,.08), 0 1px 3px rgba(28,30,38,.06);
+    --step-2: clamp(1.55rem, 1.15rem + 2vw, 2.5rem);
+    --step-1: clamp(1.15rem, 1.02rem + .7vw, 1.45rem);
+    --step-0: clamp(1rem, .95rem + .25vw, 1.1rem);
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    font-size: var(--step-0);
+    line-height: 1.65;
+  }
+  #eqf * { box-sizing: border-box; }
+
+  #eqf .eqf-section { padding: 3.2rem 0; }
+  #eqf .eqf-alt { background: var(--surface); }
+  #eqf .eqf-wrap { max-width: 1100px; margin: 0 auto; padding: 0 1.2rem; }
+  #eqf .eqf-narrow { max-width: 800px; }
+
+  #eqf h2, #eqf h3 { color: var(--ink); line-height: 1.25; margin: 0 0 1rem; }
+  #eqf .eqf-h { font-size: var(--step-2); font-weight: 700; text-align: center; }
+  #eqf .eqf-h3 { font-size: var(--step-1); font-weight: 700; }
+  #eqf p { margin: 0 0 1rem; }
+  #eqf .eqf-soft { color: var(--ink-soft); }
+  #eqf .eqf-center { text-align: center; }
+
+  /* gradient wordmark, with safe fallback */
+  #eqf .eqf-wordmark { font-weight: 700; color: var(--c-amass); }
+  @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+    #eqf .eqf-wordmark {
+      background: var(--grad);
+      -webkit-background-clip: text; background-clip: text;
+      color: transparent;
+    }
+  }
+
+  /* gradient hairline divider under section headings */
+  #eqf .eqf-rule {
+    height: 3px; width: min(160px, 40%); border: 0; border-radius: 2px;
+    background: var(--grad); margin: 0 auto 2.2rem;
+  }
+
+  /* dataset chips — the paper's kinematics color coding */
+  #eqf .eqf-chip {
+    display: inline-block; padding: .14em .7em; border-radius: 999px;
+    font-size: .78em; font-weight: 700; letter-spacing: .02em;
+    color: #fff; background: var(--ink-soft); white-space: nowrap;
+  }
+  #eqf .eqf-chip[data-k="amass"]   { background: var(--c-amass); }
+  #eqf .eqf-chip[data-k="nymeria"] { background: var(--c-nymeria); }
+  #eqf .eqf-chip[data-k="h36m"]    { background: var(--c-h36m); }
+  #eqf .eqf-chip[data-k="occl"]    { background: var(--c-occl); }
+
+  /* method labels above comparison videos */
+  #eqf .eqf-lab {
+    display: inline-block; padding: .12em .75em; border-radius: 999px;
+    font-size: .82rem; font-weight: 700; white-space: nowrap;
+  }
+  #eqf .eqf-lab-gt    { background: var(--c-gt); color: #fff; }
+  #eqf .eqf-lab-ours  { background: var(--grad); color: #fff; }
+  #eqf .eqf-lab-base  { background: #fff; color: var(--ink-soft); border: 1.5px solid var(--line); }
+
+  /* ===== hero ===== */
+  #eqf .eqf-hero { padding: 2.2rem 0 3rem; }
+  #eqf .eqf-tagline {
+    font-size: var(--step-2); font-weight: 700; text-align: center;
+    margin-bottom: .6rem;
+  }
+  #eqf .eqf-sub {
+    max-width: 760px; margin: 0 auto 2rem; text-align: center; color: var(--ink-soft);
+  }
+
+  /* video strips (hero + problem) and comparison grids */
+  #eqf .eqf-strip, #eqf .eqf-grid {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 14px; margin: 0 0 1rem;
+  }
+  #eqf figure.eqf-cell {
+    flex: 0 1 218px; min-width: 150px; margin: 0;
+    background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+    padding: .55rem .55rem .6rem; text-align: center;
+  }
+  #eqf figure.eqf-cell[hidden] { display: none; }
+  #eqf .eqf-cell video {
+    display: block; width: 100%; height: auto; aspect-ratio: 1 / 1;
+    border-radius: 9px; background: #fff;
+  }
+  #eqf .eqf-cell figcaption { padding: 0 0 .45rem; line-height: 1.35; }
+  #eqf .eqf-cell .eqf-cap-sub { display: block; font-size: .74rem; color: var(--ink-soft); margin-top: .15rem; }
+
+  /* skeleton color legend */
+  #eqf .eqf-legend { text-align: center; font-size: .85rem; color: var(--ink-soft); margin: .4rem 0 0; }
+  #eqf .eqf-dot {
+    display: inline-block; width: .72em; height: .72em; border-radius: 50%;
+    margin: 0 .3em 0 1em; vertical-align: baseline;
+  }
+  #eqf .eqf-dot:first-child { margin-left: 0; }
+  #eqf .eqf-dot-obs  { background: var(--c-obs); }
+  #eqf .eqf-dot-pred { background: var(--c-pred); }
+  #eqf .eqf-dot-gt   { background: var(--c-gt); }
+
+  /* TL;DR chips under the abstract */
+  #eqf .eqf-tldr { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; margin-top: 1.4rem; }
+  #eqf .eqf-tldr span {
+    background: var(--card); border: 1.5px solid var(--line); border-radius: 999px;
+    padding: .3em .95em; font-size: .85rem; font-weight: 700; color: var(--ink-soft);
+    box-shadow: 0 1px 3px rgba(28,30,38,.05);
+  }
+
+  /* two-column problem section */
+  #eqf .eqf-cols { display: flex; gap: 2.4rem; align-items: center; }
+  #eqf .eqf-cols > div { flex: 1 1 0; min-width: 0; }
+  #eqf .eqf-q { font-style: italic; text-align: center; font-size: var(--step-1); margin: 2rem auto 0; max-width: 700px; }
+
+  /* comparison widget */
+  #eqf .eqf-compare { position: relative; margin: 1.4rem 0 0; }
+  #eqf .eqf-toolbar {
+    display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+    gap: .5rem 1.6rem; margin-bottom: 1.1rem;
+  }
+  #eqf .eqf-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem; }
+  #eqf .eqf-btns button {
+    font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer;
+    padding: .32em 1em; border-radius: 999px;
+    border: 1.5px solid var(--line); background: var(--card); color: var(--ink-soft);
+    transition: background .15s, color .15s, border-color .15s;
+  }
+  #eqf .eqf-btns button:hover { border-color: var(--ink-soft); }
+  #eqf .eqf-btns button.is-active { background: var(--ink); border-color: var(--ink); color: #fff; }
+  #eqf .eqf-btns .eqf-btns-label { font-size: .8rem; font-weight: 700; color: var(--ink-soft); align-self: center; margin-right: .2rem; }
+
+  #eqf .eqf-hint { text-align: center; font-size: .88rem; color: var(--ink-soft); max-width: 720px; margin: .4rem auto 0; }
+
+  /* tap-to-play overlay (autoplay blocked, e.g. iOS low-power) */
+  #eqf .eqf-playbtn {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+    z-index: 5; font: inherit; font-weight: 700; cursor: pointer;
+    padding: .6em 1.4em; border-radius: 999px; border: 0;
+    background: var(--ink); color: #fff; box-shadow: var(--shadow);
+  }
+  #eqf .eqf-playbtn[hidden] { display: none; }
+
+  /* method feature cards */
+  #eqf .eqf-features { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 1.6rem; }
+  #eqf .eqf-feature {
+    flex: 1 1 260px; background: var(--card); border-radius: var(--radius);
+    box-shadow: var(--shadow); padding: 1.2rem 1.3rem;
+  }
+  #eqf .eqf-feature h3 { font-size: 1.02rem; font-weight: 700; margin-bottom: .5rem; }
+  #eqf .eqf-feature h3::before {
+    content: ""; display: block; width: 42px; height: 3px; border-radius: 2px;
+    background: var(--grad); margin-bottom: .55rem;
+  }
+  #eqf .eqf-feature p { font-size: .92rem; color: var(--ink-soft); margin: 0; }
+
+  /* figure cards */
+  #eqf .eqf-figcard {
+    background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+    padding: 1.1rem; margin: 1.6rem auto 0; max-width: 980px;
+  }
+  #eqf .eqf-figcard img { display: block; width: 100%; height: auto; }
+  #eqf .eqf-figcard figcaption { font-size: .88rem; color: var(--ink-soft); padding: .8rem .4rem 0; text-align: center; }
+
+  /* stat tiles */
+  #eqf .eqf-stats { display: flex; flex-wrap: wrap; gap: 14px; }
+  #eqf .eqf-stat {
+    flex: 1 1 220px; background: var(--card); border-radius: var(--radius);
+    box-shadow: var(--shadow); padding: 1.3rem 1.2rem 1.1rem; text-align: center;
+  }
+  #eqf .eqf-stat .eqf-num {
+    display: block; font-size: clamp(2rem, 1.4rem + 2.4vw, 2.9rem); font-weight: 700;
+    line-height: 1.1; margin-bottom: .25rem; color: var(--c-amass);
+  }
+  @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+    #eqf .eqf-stat .eqf-num {
+      background: var(--grad);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+  }
+  #eqf .eqf-stat p { font-size: .88rem; color: var(--ink-soft); margin: 0; }
+
+  #eqf .eqf-mathblock { overflow-x: auto; }
+
+  /* static hero fallback (shown when JS is unavailable or reduced motion requested) */
+  #eqf .eqf-hero-fallback { display: none; }
+  #eqf .eqf-hero-fallback img { display: block; width: 100%; height: auto; border-radius: 9px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    #eqf .eqf-hero .eqf-strip, #eqf .eqf-hero .eqf-legend { display: none; }
+    #eqf .eqf-hero-fallback {
+      display: block; max-width: 860px; margin: 0 auto;
+      background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: .8rem;
+    }
+  }
+
+  @media (max-width: 760px) {
+    #eqf .eqf-section { padding: 2.4rem 0; }
+    #eqf .eqf-cols { flex-direction: column; gap: 1.4rem; }
+    #eqf figure.eqf-cell { flex: 0 1 calc(50% - 10px); }
+    #eqf .eqf-toolbar { gap: .5rem .9rem; }
+  }
+</style>
+
+
+<!-- =========================== HERO =========================== -->
+<section class="eqf-section eqf-hero">
+  <div class="eqf-wrap">
+    <h2 class="eqf-tagline">One model. <span class="eqf-wordmark">Any skeleton.</span></h2>
+    <p class="eqf-sub">
+      Human motion is captured by many different technologies &mdash; from studio motion-capture suits to wearable
+      sensors like Meta's Aria glasses &mdash; and every dataset stores the body in its own skeleton format.
+      <span class="eqf-wordmark">EquiFusion</span> is the first stochastic 3D human motion prediction model that
+      works with <b>any</b> skeleton format, even ones it has never seen or with occluded and missing limbs &mdash;
+      reaching state of the art with 75% fewer parameters.
+    </p>
+
+    <div class="eqf-strip eqf-syncgroup" id="eqf-hero-strip">
+      <figure class="eqf-cell">
+        <figcaption><span class="eqf-chip" data-k="h36m">H36M &middot; 17 joints</span>
+          <span class="eqf-cap-sub">zero-shot kinematics</span></figcaption>
+        <video src="assets/videos/h36m_605_ours_closest.mp4" muted playsinline loop autoplay preload="auto"></video>
+      </figure>
+      <figure class="eqf-cell">
+        <figcaption><span class="eqf-chip" data-k="amass">MoYoga &middot; AMASS kin.</span>
+          <span class="eqf-cap-sub">out-of-distribution motion</span></figcaption>
+        <video src="assets/videos/moyo_4651_ours.mp4" muted playsinline loop autoplay preload="auto"></video>
+      </figure>
+      <figure class="eqf-cell">
+        <figcaption><span class="eqf-chip" data-k="occl">Occluded arms</span>
+          <span class="eqf-cap-sub">zero-shot partial input</span></figcaption>
+        <video src="assets/videos/occl_arms2_ours.mp4" muted playsinline loop autoplay preload="auto"></video>
+      </figure>
+      <figure class="eqf-cell">
+        <figcaption><span class="eqf-chip" data-k="occl">Limb generation</span>
+          <span class="eqf-cap-sub">zero-shot, on request</span></figcaption>
+        <video src="assets/videos/occl_limbgen_ours.mp4" muted playsinline loop autoplay preload="auto"></video>
+      </figure>
     </div>
+
+    <p class="eqf-legend">
+      <span class="eqf-dot eqf-dot-obs"></span>observed past
+      <span class="eqf-dot eqf-dot-pred"></span>predicted future
+      <span class="eqf-dot eqf-dot-gt"></span>occluded / ground truth
+      &nbsp;&mdash;&nbsp; all four sequences come from <b>one single trained model</b>.
+    </p>
+
+    <div class="eqf-hero-fallback">
+      <img src="assets/thumbnail_equifusion.png"
+           alt="EquiFusion teaser: a single model maps AMASS, Nymeria, H36M and occluded skeletons to diverse predicted futures."
+           width="989" height="720" loading="eager">
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================== ABSTRACT =========================== -->
+<section class="eqf-section eqf-alt">
+  <div class="eqf-wrap eqf-narrow">
+    <h2 class="eqf-h">Abstract</h2>
+    <hr class="eqf-rule">
+    <p style="text-align: justify;">
+      Existing Stochastic 3D Human Motion Prediction models are fundamentally constrained by hard-coding the
+      skeleton kinematics, severely limiting generalization, preventing cross-dataset training, and requiring
+      complex data retargeting. We introduce <span class="eqf-wordmark">EquiFusion</span>, the first
+      kinematics-agnostic model to solve this bottleneck, implementing a latent diffusion model with a permutation
+      equivariant architecture. EquiFusion treats the kinematics' connectivity as an explicit input parameter,
+      ensuring its internal computations are inherently agnostic to joint ordering and graph structure. This novel
+      design enables truly cross-dataset generalization to unseen kinematics and unlocks novel zero-shot
+      directions, such as motion prediction from partial or occluded observations and targeted limb generation.
+      EquiFusion achieves state-of-the-art results on major benchmarks, being up to 75% more compact than previous
+      kinematics-specific methods, while achieving faster training and inference. EquiFusion thus establishes a
+      new, flexible standard for robust human motion prediction.
+    </p>
+    <div class="eqf-tldr">
+      <span>SOTA with 75% fewer parameters</span>
+      <span>Faster training &amp; inference</span>
+      <span>Zero-shot: unseen skeletons &amp; occlusions</span>
+      <span>First multi-dataset SHMP training</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================== PROBLEM =========================== -->
+<section class="eqf-section">
+  <div class="eqf-wrap">
+    <h2 class="eqf-h">Why kinematics-agnostic?</h2>
+    <hr class="eqf-rule">
+    <div class="eqf-cols">
+      <div>
+        <p>
+          Every motion-capture convention defines its own skeleton <em>kinematics</em>:
+          <span class="eqf-chip" data-k="amass">AMASS</span> uses the SMPL body with 22 joints,
+          <span class="eqf-chip" data-k="h36m">H36M</span> has 17 joints and no feet, and
+          <span class="eqf-chip" data-k="nymeria">Nymeria</span>, captured with ARIA glasses and XSens,
+          uses 23 joints with a different spine and hip layout. New devices will keep producing new formats.
+        </p>
+        <p>
+          Previous stochastic motion prediction methods hard-code one kinematics into their network weights.
+          The result: a separate trained model for every dataset, no cross-dataset training, and no way to handle
+          occluded or partial skeletons. The usual workaround &mdash; retargeting the input motion to the training
+          skeleton &mdash; introduces conversion errors of up to 2.27&nbsp;cm and a distribution shift, which is far
+          from negligible when state-of-the-art prediction precision is around 7&nbsp;cm.
+        </p>
+        <p>
+          Breaking this barrier &mdash; one model that trains on many datasets at once and runs on any skeleton
+          &mdash; is a step toward human spatial AI and foundation models for human motion.
+        </p>
+      </div>
+      <div>
+        <div class="eqf-strip eqf-syncgroup" style="margin-bottom: .2rem;">
+          <figure class="eqf-cell">
+            <figcaption><span class="eqf-chip" data-k="amass">AMASS &middot; 22 joints</span></figcaption>
+            <video src="assets/videos/moyo_4652_gt.mp4" muted playsinline loop autoplay preload="auto"></video>
+          </figure>
+          <figure class="eqf-cell">
+            <figcaption><span class="eqf-chip" data-k="h36m">H36M &middot; 17 joints</span></figcaption>
+            <video src="assets/videos/h36m_1774_gt.mp4" muted playsinline loop autoplay preload="auto"></video>
+          </figure>
+          <figure class="eqf-cell">
+            <figcaption><span class="eqf-chip" data-k="occl">Occluded limb</span></figcaption>
+            <video src="assets/videos/occl_arm1_gt.mp4" muted playsinline loop autoplay preload="auto"></video>
+          </figure>
         </div>
-  </section>
-
-
- <section class="section">
-    <div class="container">
-
-  <section class="section hero is-light">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Coming Soon</h2>
-          <div class="content has-text-justified">
-            <p>
-            </p>
-          </div>
-        </div>
+        <p class="eqf-legend">Different joint counts, positions, and connections &mdash; previous methods need one network for each.</p>
       </div>
     </div>
-  </section>
+    <p class="eqf-q">Can a single model predict motion for any skeleton &mdash; even one it has never seen?</p>
+  </div>
+</section>
 
 
+<!-- =========================== RESULTS IN MOTION =========================== -->
+<section class="eqf-section eqf-alt">
+  <div class="eqf-wrap">
+    <h2 class="eqf-h">Results in motion</h2>
+    <hr class="eqf-rule">
+
+    <!-- A. Zero-shot kinematics on H36M -->
+    <h3 class="eqf-h3 eqf-center"><span class="eqf-chip" data-k="h36m">H36M</span>&ensp;Zero-shot kinematics</h3>
+    <p class="eqf-center eqf-soft" style="max-width: 780px; margin: 0 auto;">
+      Trained on AMASS and Nymeria &mdash; never on H36M's 17-joint skeleton. Baselines must first retarget the
+      input to their training kinematics; EquiFusion runs natively on the new skeleton.
+    </p>
+    <div class="eqf-compare" data-widget="h36m">
+      <div class="eqf-toolbar">
+        <div class="eqf-btns" role="tablist" aria-label="Sequence">
+          <span class="eqf-btns-label">Sequence</span>
+          <button type="button" class="eqf-tab is-active" data-seq="605" aria-pressed="true">1</button>
+          <button type="button" class="eqf-tab" data-seq="1774" aria-pressed="false">2</button>
+          <button type="button" class="eqf-tab" data-seq="3127" aria-pressed="false">3</button>
+        </div>
+        <div class="eqf-btns" role="tablist" aria-label="Prediction type">
+          <span class="eqf-btns-label">Prediction</span>
+          <button type="button" class="eqf-mode is-active" data-mode="closest" aria-pressed="true">Closest to GT</button>
+          <button type="button" class="eqf-mode" data-mode="div0" aria-pressed="false">Diverse #1</button>
+          <button type="button" class="eqf-mode" data-mode="div1" aria-pressed="false">Diverse #2</button>
+        </div>
+      </div>
+      <div class="eqf-grid eqf-syncgroup">
+        <figure class="eqf-cell" data-slot="gt">
+          <figcaption><span class="eqf-lab eqf-lab-gt">Ground Truth</span></figcaption>
+          <video src="assets/videos/h36m_605_gt.mp4" muted playsinline loop autoplay preload="auto"></video>
+        </figure>
+        <figure class="eqf-cell" data-slot="ours">
+          <figcaption><span class="eqf-lab eqf-lab-ours">EquiFusion (Ours)</span></figcaption>
+          <video src="assets/videos/h36m_605_ours_closest.mp4" muted playsinline loop autoplay preload="auto"></video>
+        </figure>
+        <figure class="eqf-cell" data-slot="skeldiff">
+          <figcaption><span class="eqf-lab eqf-lab-base">SkelDiff</span></figcaption>
+          <video src="assets/videos/h36m_605_skeldiff_closest.mp4" muted playsinline loop autoplay preload="auto"></video>
+        </figure>
+        <figure class="eqf-cell" data-slot="comusion">
+          <figcaption><span class="eqf-lab eqf-lab-base">CoMusion</span></figcaption>
+          <video src="assets/videos/h36m_605_comusion_closest.mp4" muted playsinline loop autoplay preload="auto"></video>
+        </figure>
+      </div>
+      <button type="button" class="eqf-playbtn" hidden>&#9654;&ensp;Play</button>
+      <p class="eqf-hint">
+        Watch the baselines' hips and limb proportions: the retargeting they require corrupts hip bones and adds
+        jitter, while EquiFusion stays coherent with the observation.
+      </p>
+    </div>
+
+    <!-- B. Out-of-distribution: MoYoga -->
+    <h3 class="eqf-h3 eqf-center" style="margin-top: 3rem;"><span class="eqf-chip" data-k="amass">MoYoga</span>&ensp;Out-of-distribution motion</h3>
+    <p class="eqf-center eqf-soft" style="max-width: 780px; margin: 0 auto;">
+      Models trained on AMASS, tested on MoYoga: extreme yoga poses far outside the training distribution.
+      MoYoga shares the AMASS kinematics, so no retargeting is needed for any method &mdash; a level playing field.
+    </p>
+    <div class="eqf-compare" data-widget="moyo">
+      <div class="eqf-toolbar">
+        <div class="eqf-btns" role="tablist" aria-label="Sequence">
+          <span class="eqf-btns-label">Sequence</span>
+          <button type="button" class="eqf-tab is-active" data-seq="4651" aria-pressed="true">1</button>
+          <button type="button" class="eqf-tab" data-seq="4652" aria-pressed="false">2</button>
+          <button type="button" class="eqf-tab" data-seq="4656" aria-pressed="false">3</button>
+        </div>
+      </div>
+      <div class="eqf-grid eqf-syncgroup">
+        <figure class="eqf-cell" data-slot="gt">
+          <figcaption><span class="eqf-lab eqf-lab-gt">Ground Truth</span></figcaption>
+          <video src="assets/videos/moyo_4651_gt.mp4" muted playsinline loop autoplay preload="auto"></video>
+        </figure>
+        <figure class="eqf-cell" data-slot="ours">
+          <figcaption><span class="eqf-lab eqf-lab-ours">EquiFusion (Ours)</span></figcaption>
+          <video src="assets/videos/moyo_4651_ours.mp4" muted playsinline loop autoplay preload="auto"></video>
+        </figure>
+        <figure class="eqf-cell" data-slot="skeldiff">
+          <figcaption><span class="eqf-lab eqf-lab-base">SkelDiff</span></figcaption>
+          <video src="assets/videos/moyo_4651_skeldiff.mp4" muted playsinline loop autoplay preload="auto"></video>
+        </figure>
+        <figure class="eqf-cell" data-slot="comusion">
+          <figcaption><span class="eqf-lab eqf-lab-base">CoMusion</span></figcaption>
+          <video src="assets/videos/moyo_4651_comusion.mp4" muted playsinline loop autoplay preload="auto"></video>
+        </figure>
+      </div>
+      <button type="button" class="eqf-playbtn" hidden>&#9654;&ensp;Play</button>
+      <p class="eqf-hint">
+        On these balance-critical poses the baselines produce impossible torso twists or break the body apart;
+        EquiFusion keeps the balance and the body intact.
+      </p>
+    </div>
+
+    <!-- C. Zero-shot occlusions & limb generation -->
+    <h3 class="eqf-h3 eqf-center" style="margin-top: 3rem;"><span class="eqf-chip" data-k="occl">Occlusions</span>&ensp;Zero-shot partial skeletons</h3>
+    <p class="eqf-center eqf-soft" style="max-width: 780px; margin: 0 auto;">
+      Full limbs are removed from the input observation (shown in gray) &mdash; a setting never seen during
+      training. EquiFusion predicts a plausible future for the visible joints regardless of the missing part, and
+      can even generate the missing limb on request. Baselines require hand-crafted completion heuristics and are
+      shown where available.
+    </p>
+    <div class="eqf-compare" data-widget="occl">
+      <div class="eqf-toolbar">
+        <div class="eqf-btns" role="tablist" aria-label="Sequence">
+          <button type="button" class="eqf-tab is-active" data-seq="arms2" aria-pressed="true">Both arms occluded</button>
+          <button type="button" class="eqf-tab" data-seq="arm1" aria-pressed="false">One arm occluded</button>
+          <button type="button" class="eqf-tab" data-seq="limbgen" aria-pressed="false">Limb generation</button>
+          <button type="button" class="eqf-tab" data-seq="h36m" aria-pressed="false">Occluded legs (H36M)</button>
+        </div>
+      </div>
+      <div class="eqf-grid eqf-syncgroup">
+        <figure class="eqf-cell" data-slot="gt">
+          <figcaption><span class="eqf-lab eqf-lab-gt">Ground Truth</span></figcaption>
+          <video src="assets/videos/occl_arms2_gt.mp4" muted playsinline loop autoplay preload="auto"></video>
+        </figure>
+        <figure class="eqf-cell" data-slot="ours">
+          <figcaption><span class="eqf-lab eqf-lab-ours">EquiFusion (Ours)</span></figcaption>
+          <video src="assets/videos/occl_arms2_ours.mp4" muted playsinline loop autoplay preload="auto"></video>
+        </figure>
+        <figure class="eqf-cell" data-slot="skeldiff">
+          <figcaption><span class="eqf-lab eqf-lab-base">SkelDiff</span></figcaption>
+          <video src="assets/videos/occl_arms2_skeldiff.mp4" muted playsinline loop autoplay preload="auto"></video>
+        </figure>
+      </div>
+      <button type="button" class="eqf-playbtn" hidden>&#9654;&ensp;Play</button>
+      <p class="eqf-hint">
+        Gray limbs are hidden from the model's input. The last tab combines both zero-shot settings at once:
+        an unseen kinematics (H36M) <em>and</em> occluded legs.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================== METHOD =========================== -->
+<section class="eqf-section">
+  <div class="eqf-wrap">
+    <h2 class="eqf-h">How it works</h2>
+    <hr class="eqf-rule">
+    <div class="eqf-wrap eqf-narrow" style="padding: 0;">
+      <p>
+        To handle arbitrary kinematic chains, a model's learned weights must be independent of the number of
+        joints and of their ordering. We identify <b>permutation equivariance</b> as the key property: reordering
+        the joints of the input motion \(\mathbf{X}\) and of its adjacency matrix \(\mathbf{A}\) must simply
+        reorder the output,
+      </p>
+      <div class="eqf-mathblock">
+        $$f(\mathbf{P}\mathbf{X},\, \mathbf{P}\mathbf{A}\mathbf{P}^{\top}) = \mathbf{P}\, f(\mathbf{X}, \mathbf{A})\,.$$
+      </div>
+      <p>
+        <span class="eqf-wordmark">EquiFusion</span> is built end-to-end from operations that satisfy this
+        property: a transformer autoencoder maps motion sequences to a joint-wise latent space, and a denoiser
+        predicts future motion in this latent space, conditioned on the embedding of the observed past. The
+        skeleton's connectivity is an explicit input to every stage &mdash; not a prior baked into the weights.
+      </p>
+    </div>
+
+    <figure class="eqf-figcard">
+      <img src="assets/fig2_architecture.png" loading="lazy" width="979" height="468"
+           alt="EquiFusion architecture: (I) a transformer autoencoder learns a permutation-equivariant latent space; (II) a latent diffusion denoiser predicts future motion conditioned on the observed past, with the adjacency matrix as input.">
+      <figcaption>
+        <b>(I)</b> A transformer autoencoder learns a latent space equivariant to joint permutations.
+        <b>(II)</b> A denoiser predicts future motion in this latent domain, conditioned on the observed past
+        &mdash; both take the kinematics' adjacency matrix \(\mathbf{A}\) as input.
+      </figcaption>
+    </figure>
+
+    <div class="eqf-features">
+      <div class="eqf-feature">
+        <h3>Equivariant by construction</h3>
+        <p>
+          Graph convolutions aggregate features through the normalized adjacency
+          \(\mathbf{W} = \mathbf{D}^{-1}\mathbf{A}\), and attention runs over joint tokens without positional
+          encodings. Every layer commutes with joint permutations, so the full network does too &mdash; with a
+          formal guarantee, not data augmentation.
+        </p>
+      </div>
+      <div class="eqf-feature">
+        <h3>Bone directions, not positions</h3>
+        <p>
+          Each joint is encoded as the direction from its parent joint. Limb lengths stay consistent by design
+          &mdash; zero stretching and jitter &mdash; and this parametrization transfers across kinematics and
+          improves existing SHMP methods too, without architecture changes.
+        </p>
+      </div>
+      <div class="eqf-feature">
+        <h3>Kinematics as an input</h3>
+        <p>
+          The adjacency matrix is a runtime input, not a design constant. One trained instance serves AMASS,
+          H36M, Nymeria, partial skeletons &mdash; or any kinematics released in the future &mdash; with a
+          parameter count that stays constant no matter how many joints or datasets.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================== RESULTS AT A GLANCE =========================== -->
+<section class="eqf-section eqf-alt">
+  <div class="eqf-wrap">
+    <h2 class="eqf-h">Results at a glance</h2>
+    <hr class="eqf-rule">
+    <p class="eqf-center eqf-soft" style="max-width: 780px; margin: -1rem auto 1.6rem;">
+      EquiFusion achieves <b>state-of-the-art results with 75% fewer parameters</b> than the closest competitor
+      on standard benchmarks (AMASS, H36M, Nymeria) &mdash; with a single model instance across all datasets.
+    </p>
+    <div class="eqf-stats">
+      <div class="eqf-stat">
+        <span class="eqf-num">75%</span>
+        <p>fewer parameters than the closest competitor &mdash; constant at &sim;7M while baselines grow toward 100M</p>
+      </div>
+      <div class="eqf-stat">
+        <span class="eqf-num">2&times;</span>
+        <p>faster training and inference, despite training on multiple datasets at once</p>
+      </div>
+      <div class="eqf-stat">
+        <span class="eqf-num">+25%</span>
+        <p>improvement across all metrics in zero-shot kinematics settings, gaining up to 70% on realism</p>
+      </div>
+      <div class="eqf-stat">
+        <span class="eqf-num">0%</span>
+        <p>limb stretching and jitter &mdash; guaranteed by the bone-direction parametrization</p>
+      </div>
+    </div>
+
+    <figure class="eqf-figcard">
+      <img src="assets/fig3_scaling.png" loading="lazy" width="1025" height="275"
+           alt="Left: baselines' parameter counts grow with the number of supported kinematics while EquiFusion stays constant around 7M. Right: EquiFusion achieves the best precision with the fewest parameters.">
+      <figcaption>
+        Baselines need a new instance &mdash; and more parameters &mdash; for every supported kinematics;
+        EquiFusion stays constant at &sim;7M <i>(left)</i> while achieving the best precision, averaged over
+        three datasets <i>(right)</i>.
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+
+{% raw %}
+<script>
+(function () {
+  'use strict';
+
+  var BASE = 'assets/videos/';
+  var REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* filename builders per widget */
+  var FILES = {
+    h36m: function (seq, slot, mode) {
+      return slot === 'gt' ? 'h36m_' + seq + '_gt.mp4'
+                           : 'h36m_' + seq + '_' + slot + '_' + mode + '.mp4';
+    },
+    moyo: function (seq, slot) {
+      return slot === 'gt' ? 'moyo_' + seq + '_gt.mp4'
+                           : 'moyo_' + seq + '_' + slot + '.mp4';
+    },
+    occl: function (seq, slot) {
+      return 'occl_' + seq + '_' + slot + '.mp4';
+    }
+  };
+  /* which method slots exist per occlusion sequence */
+  var AVAIL = {
+    occl: {
+      arms2:   ['gt', 'ours', 'skeldiff'],
+      arm1:    ['gt', 'ours', 'skeldiff'],
+      limbgen: ['gt', 'ours'],
+      h36m:    ['gt', 'ours']
+    }
+  };
+
+  /* ---- synchronized playback group ---- */
+  function Group(root) {
+    var self = this;
+    this.root = root;
+    this.videos = [].slice.call(root.querySelectorAll('video'));
+    this.active = false;
+    this.loadId = 0;
+    this.endedCount = 0;
+    this.playBtn = null;
+    var compare = root.closest ? root.closest('.eqf-compare') : null;
+    if (compare) this.playBtn = compare.querySelector('.eqf-playbtn');
+
+    this.videos.forEach(function (v) {
+      v.removeAttribute('autoplay');
+      v.loop = false;
+      v.muted = true;
+      v.pause();
+      v.addEventListener('ended', function () { self.onEnded(); });
+    });
+    if (this.playBtn) {
+      this.playBtn.addEventListener('click', function () {
+        self.playBtn.hidden = true;
+        self.sync();
+      });
+    }
+  }
+
+  Group.prototype.visible = function () {
+    return this.videos.filter(function (v) {
+      var fig = v.parentNode;
+      return !(fig && fig.hidden);
+    });
+  };
+
+  Group.prototype.pauseAll = function () {
+    this.videos.forEach(function (v) { v.pause(); });
+  };
+
+  Group.prototype.onEnded = function () {
+    var self = this;
+    this.endedCount += 1;
+    if (this.endedCount >= this.visible().length) {
+      this.endedCount = 0;
+      if (!this.active) return;
+      setTimeout(function () { if (self.active) self.restart(); }, 350);
+    }
+  };
+
+  Group.prototype.restart = function () {
+    var self = this;
+    this.endedCount = 0;
+    var vids = this.visible();
+    vids.forEach(function (v) { try { v.currentTime = 0; } catch (e) {} });
+    var rejected = false;
+    var plays = vids.map(function (v) {
+      var p = v.play();
+      return p && p.catch ? p.catch(function () { rejected = true; }) : null;
+    });
+    if (Promise && Promise.all) {
+      Promise.all(plays).then(function () {
+        if (rejected && self.playBtn) self.playBtn.hidden = false;
+      });
+    }
+  };
+
+  /* wait until every visible video can play through, then restart together */
+  Group.prototype.sync = function () {
+    var self = this;
+    var id = ++this.loadId;
+    var vids = this.visible();
+    var pending = vids.filter(function (v) { return v.readyState < 3; });
+
+    if (!pending.length) { this.restart(); return; }
+
+    var remaining = pending.length;
+    var done = false;
+    function check() {
+      if (done || id !== self.loadId) return;
+      remaining -= 1;
+      if (remaining <= 0) { done = true; if (self.active) self.restart(); }
+    }
+    pending.forEach(function (v) {
+      var handler = function () { v.removeEventListener('canplay', handler); check(); };
+      v.addEventListener('canplay', handler);
+    });
+    setTimeout(function () {  /* safety valve: never block on one stalled file */
+      if (!done && id === self.loadId) { done = true; if (self.active) self.restart(); }
+    }, 2500);
+  };
+
+  var groups = [];
+  [].slice.call(document.querySelectorAll('.eqf-syncgroup')).forEach(function (el) {
+    var g = new Group(el);
+    el.eqfGroup = g;
+    groups.push(g);
+  });
+
+  /* play only while on screen */
+  if ('IntersectionObserver' in window && !REDUCED) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var g = entry.target.eqfGroup;
+        if (!g) return;
+        if (entry.isIntersecting) { g.active = true; g.sync(); }
+        else { g.active = false; g.pauseAll(); }
+      });
+    }, { threshold: 0.2 });
+    groups.forEach(function (g) { io.observe(g.root); });
+  } else if (!REDUCED) {
+    groups.forEach(function (g) { g.active = true; g.sync(); });
+  } else {
+    /* reduced motion: keep everything paused, offer manual play buttons */
+    groups.forEach(function (g) { if (g.playBtn) g.playBtn.hidden = false; });
+  }
+
+  /* ---- comparison widgets: sequence tabs + prediction-mode toggle ---- */
+  [].slice.call(document.querySelectorAll('.eqf-compare')).forEach(function (root) {
+    var type = root.getAttribute('data-widget');
+    var grid = root.querySelector('.eqf-syncgroup');
+    var group = grid.eqfGroup;
+    var state = { seq: null, mode: 'closest' };
+
+    var tabs = [].slice.call(root.querySelectorAll('.eqf-tab'));
+    var modes = [].slice.call(root.querySelectorAll('.eqf-mode'));
+    tabs.forEach(function (b) { if (b.classList.contains('is-active')) state.seq = b.getAttribute('data-seq'); });
+    modes.forEach(function (b) { if (b.classList.contains('is-active')) state.mode = b.getAttribute('data-mode'); });
+
+    function apply() {
+      [].slice.call(root.querySelectorAll('figure[data-slot]')).forEach(function (fig) {
+        var slot = fig.getAttribute('data-slot');
+        var avail = AVAIL[type] && AVAIL[type][state.seq];
+        if (avail && avail.indexOf(slot) === -1) { fig.hidden = true; return; }
+        fig.hidden = false;
+        var v = fig.querySelector('video');
+        var file = BASE + FILES[type](state.seq, slot, state.mode);
+        if (v.getAttribute('src') !== file) { v.setAttribute('src', file); v.load(); }
+      });
+      group.active = true;
+      group.sync();
+    }
+
+    function activate(buttons, clicked) {
+      buttons.forEach(function (b) {
+        var on = b === clicked;
+        b.classList.toggle('is-active', on);
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+    }
+
+    tabs.forEach(function (b) {
+      b.addEventListener('click', function () {
+        if (b.classList.contains('is-active')) return;
+        activate(tabs, b);
+        state.seq = b.getAttribute('data-seq');
+        apply();
+      });
+    });
+    modes.forEach(function (b) {
+      b.addEventListener('click', function () {
+        if (b.classList.contains('is-active')) return;
+        activate(modes, b);
+        state.mode = b.getAttribute('data-mode');
+        apply();
+      });
+    });
+  });
+})();
+</script>
+{% endraw %}
+
+</div>
