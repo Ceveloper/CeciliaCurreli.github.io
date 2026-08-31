@@ -1,4 +1,11 @@
-
+- date: July 2026
+  description: 'Our paper [EquiFusion: Kinematics-Agnostic Human Motion Prediction via Equivariant Latent Diffusion](https://ceveloper.github.io/publications/equifusion/) was accepted to **ECCV 2026**'
+- date: July 2026
+  description: 'Our paper [Evaluating Super-Resolution Models for Real-World Sentinel-2 Applications: A Case Study](https://isprs-annals.copernicus.org/articles/XI-3-2026/215/2026/) was accepted and accepted as an oral presentation to **ISPRS Annals 2026** in Toronto'
+- date: May 2026
+  description: 'I joined Google for a research internship in Seattle, with two great hosts Osman Ulusoy and Connor Lee at Google Beam.'
+- date: May 2026
+  description: 'Our paper [Benchmarking Single-Step Inpainting Methods for Multi-Object 3D Gaussian Splatting Scenes](https://arxiv.org/abs/2605.30987) was accepted as an extended abstract at **CVEU Workshop at CVPR 2026**'
 - date: May 2025
   description: 'I joined the MCML delegation to present our research at NYU, Cornell, Cornell Tech, Harvard, and MIT.'
 - date: Apr 2025
