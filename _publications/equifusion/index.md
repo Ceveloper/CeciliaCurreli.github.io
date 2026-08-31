@@ -3,7 +3,6 @@ layout: publications
 permalink: /publications/equifusion/
 date: 2026_07_13 # determines sorting just take the date of the first publication as YYYY_MM_DD
 image: /assets/teaser_animated_social.gif
-image_mouseover: /assets/videos/h36m_605_ours_closest.mp4
 # icon: /assets/favicon.ico
 
 title: "EquiFusion: Kinematics-Agnostic Human Motion Prediction via Equivariant Latent Diffusion"
