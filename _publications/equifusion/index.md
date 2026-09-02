@@ -46,7 +46,7 @@ links:
     #   link: /publications/equifusion/assets/eccv26_equifusion_poster.pdf
     #   style: "bi bi-file-earmark-pdf"
 
-citation: '@misc{curreli2026equifusion, title={EquiFusion: Kinematics-Agnostic Human Motion Prediction via Equivariant Latent Diffusion}, author={Cecilia Curreli and Florian Hofherr and Dominik Muhle and Abhishek Saroha and Riccardo Marin and Daniel Cremers}, year={2026}, eprint={2607.10984}, archivePrefix={arXiv}, note={Accepted at ECCV 2026}}'
+citation: '@inproceedings{curreli2026equifusion, title={EquiFusion: Kinematics-Agnostic Human Motion Prediction via Equivariant Latent Diffusion}, author={Cecilia Curreli and Florian Hofherr and Dominik Muhle and Abhishek Saroha and Riccardo Marin and Daniel Cremers}, booktitle={European Conference on Computer Vision}, year={2026}, organization={Springer}'
 # TODO once proceedings are out switch to @InProceedings with booktitle={Proceedings of the European Conference on Computer Vision (ECCV)}
 
 acknowledgements: 'This work was supported by the European Research Council (ERC) Advanced Grant SIMULACRON. Thanks to Maolin Gao and Felix Wimbauer for proofreading, Thomas Dagès for the detailed and constructive suggestions, Stefania Zunino and the CVG team for their unwavering support.'
